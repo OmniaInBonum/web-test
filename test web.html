@@ -25,7 +25,7 @@
                         'askesis-text-dark': '#343a40',
                         'askesis-text-body': '#4A5568',
                         'askesis-bg-light': '#f8f9fa',
-                        'askesis-accent-blue-light': '#e6f0ff', // For Beneficios section
+                        'askesis-accent-blue-light': '#e6f0ff', 
                     },
                     fontFamily: {
                         'lato': ['Lato', 'sans-serif'],
@@ -124,15 +124,28 @@
             text-align: center;
             padding-top: 80px; 
         }
-        #quienes-somos { background-color: var(--askesis-light-gray); }
+        
+        /* Fondo para Quienes Somos */
+        #quienes-somos { 
+            background: linear-gradient(rgba(237, 242, 247, 0.85), rgba(237, 242, 247, 0.95)), url('https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed; /* Efecto parallax sutil */
+        }
+        
         #programas-especificos { 
             background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
             background-size: cover;
             background-attachment: fixed;
         }
         #metodologia { background-color: var(--askesis-dark); color: var(--askesis-light-gray); }
-        #beneficios { background-color: var(--askesis-bg-white); } /* Fondo blanco para sección beneficios */
-        #guias { background-color: var(--askesis-light-gray); }
+        #beneficios { background-color: var(--askesis-bg-white); } 
+        
+        /* Fondo para Guías */
+        #guias { 
+            background: linear-gradient(rgba(237, 242, 247, 0.9), rgba(237, 242, 247, 0.95)), url('https://images.pexels.com/photos/265076/pexels-photo-265076.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed; /* Efecto parallax sutil */
+        }
         #cta-final { background-color: var(--askesis-blue); color: white; }
 
         .content-wrapper {
@@ -277,7 +290,7 @@
         }
 
 
-        .card-item { /* Estilo base para tarjetas, usado por programas y beneficios */
+        .card-item { 
             background-color: white;
             border-radius: 12px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
@@ -302,13 +315,13 @@
         /* Estilos mejorados para Programas Específicos */
         .programs-grid { 
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Un poco más de ancho base */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
             gap: 2rem; 
         }
-        .program-card { /* Hereda de .card-item */
-            border-left: 5px solid var(--askesis-blue); /* Borde distintivo */
+        .program-card { 
+            border-left: 5px solid var(--askesis-blue); 
         }
-        .program-card .program-icon { /* Para iconos de programas */
+        .program-card .program-icon { 
             font-size: 2.5rem;
             color: var(--askesis-blue);
             margin-bottom: 1rem;
@@ -316,10 +329,10 @@
         }
          .program-card .plan-content { 
             flex-grow: 1;
-            padding: 1.5rem; /* Más padding */
+            padding: 1.5rem; 
         }
         .program-card .card-title { 
-            font-size: 1.35em; /* Ligeramente más grande */
+            font-size: 1.35em; 
             color: var(--askesis-blue);
         }
          .program-card .plan-price { 
@@ -334,15 +347,15 @@
             width: calc(100% - 3rem); 
             padding: 0.75rem 1rem; 
             font-size: 0.95em; 
-            margin-top: 1.5rem; /* Más espacio arriba del botón */
+            margin-top: 1.5rem; 
         }
         .program-card .plan-features li { 
             font-size: 0.9rem; 
-            margin-bottom: 0.5rem; /* Más espaciado entre features */
+            margin-bottom: 0.5rem; 
         }
         .plan-features { list-style: none; padding-left: 0; } 
         .plan-features li {
-            padding-left: 1.75rem; /* Más padding para el ícono */
+            padding-left: 1.75rem; 
             position: relative;
         }
         .plan-features li::before {
@@ -353,7 +366,7 @@
             left: 0;
             top: 4px; 
             color: var(--askesis-green);
-            font-size: 1.1em; /* Icono un poco más grande */
+            font-size: 1.1em; 
         }
 
 
@@ -364,6 +377,9 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             text-align: center;
             transition: all 0.3s ease;
+        }
+        #quienes-somos .feature-card-qs { /* Asegurar que las tarjetas en quienes somos no tengan fondo de imagen */
+             background-color: white;
         }
         .feature-card-qs:hover {
             transform: translateY(-3px);
@@ -380,8 +396,9 @@
         /* Estilos para Metodología y Beneficios Plegables */
         .collapsible-section details {
             border-radius: 8px;
-            border: 1px solid var(--askesis-border-color); /* Borde sutil */
+            border: 1px solid var(--askesis-border-color); 
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 2rem; /* Espacio entre secciones plegables */
         }
         .collapsible-section summary {
             font-family: 'Roboto', sans-serif;
@@ -444,25 +461,27 @@
         }
         /* Estilos específicos para Beneficios */
         #beneficios details { background-color: var(--askesis-bg-white); }
-        #beneficios summary { color: var(--askesis-dark); border-bottom: 4px solid var(--askesis-green); } /* Borde verde para diferenciar */
+        #beneficios summary { color: var(--askesis-dark); border-bottom: 4px solid var(--askesis-green); } 
         #beneficios details[open] summary { background-color: var(--askesis-accent-blue-light); }
-        .beneficio-card { /* Ya tiene estilos de .card-item */
+        .beneficio-card { 
             text-align: center; 
-            padding: 1.5rem; /* Ajustado */
+            padding: 1.5rem; 
+            background-color: var(--askesis-bg-white); /* Asegurar fondo blanco para tarjetas de beneficios */
         }
         .beneficio-card .beneficio-icon {
             font-size: 2.5rem; 
-            color: var(--askesis-green); /* Iconos de beneficios en verde */
+            color: var(--askesis-green); 
             margin-bottom: 1rem;
         }
         .beneficio-card .beneficio-title {
             font-size: 1.2em; 
-            color: var(--askesis-blue); /* Título en azul */
+            color: var(--askesis-blue); 
         }
 
 
         .guia-card {
             padding: 1.25rem; 
+            background-color: var(--askesis-bg-white); /* Asegurar fondo blanco para tarjetas de guías */
         }
         .guia-card .guia-icon {
             font-size: 2.5rem; 
