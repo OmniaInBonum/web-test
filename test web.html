@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis - Entrenamiento Personalizado Basado en Ciencia</title>
+    <meta name="description" content="Transforma tu físico y alcanza tus metas con Askesis. Entrenamiento online personalizado, guías gratuitas y adaptado a ti.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1', 
+                        'askesis-calisthenics-orange': '#f39c12', 
+                        'askesis-dark': '#1a202c',
+                        'askesis-gray': '#2d3748',
+                        'askesis-light-gray': '#edf2f7',
+                        'askesis-text-dark': '#343a40',
+                        'askesis-text-body': '#4A5568',
+                        'askesis-bg-light': '#f8f9fa',
+                        'askesis-accent-blue-light': '#e6f0ff', // For Beneficios section
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1; 
+            --askesis-calisthenics-orange: #f39c12; 
+            --askesis-dark: #1a202c;
+            --askesis-gray: #2d3748;
+            --askesis-light-gray: #edf2f7;
+            --askesis-text-body: #4A5568;
+            --askesis-bg-white: #ffffff; 
+            --askesis-accent-blue-light: #e6f0ff;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-text-body);
+            background-color: var(--askesis-bg-light);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header and Navigation */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            background-color: transparent;
+        }
+        .main-header.scrolled {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+        .nav-link {
+            color: white;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            border-radius: 0.25rem;
+            font-weight: 600;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--askesis-orange);
+        }
+        .nav-cta-button {
+            background-color: var(--askesis-orange);
+            color: white !important;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.375rem;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+        }
+        .nav-cta-button:hover {
+            background-color: #d97019;
+            transform: scale(1.05);
+        }
+
+        .scroll-mt-header {
+            /* scroll-margin-top is set by JavaScript */
+        }
+
+        .page-section {
+            padding: 4rem 1.5rem; 
+        }
+        
+        #hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/jimeng-2025-05-17-587-Ultra-realistic%20photo%20of%20a%20personal%20trainer%20looking%20a%20women%20doing%20squats%2C%20capt....jpeg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            min-height: 100vh; 
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px; 
+        }
+        #quienes-somos { background-color: var(--askesis-light-gray); }
+        #programas-especificos { 
+            background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        #metodologia { background-color: var(--askesis-dark); color: var(--askesis-light-gray); }
+        #beneficios { background-color: var(--askesis-bg-white); } /* Fondo blanco para sección beneficios */
+        #guias { background-color: var(--askesis-light-gray); }
+        #cta-final { background-color: var(--askesis-blue); color: white; }
+
+        .content-wrapper {
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title-light {
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            font-size: 2.2em; 
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 4px solid var(--askesis-orange);
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .section-title-dark {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-dark);
+            font-size: 2.2em; 
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 4px solid var(--askesis-orange);
+            text-align: center;
+            text-transform: uppercase;
+        }
+        #hero .hero-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 3rem; 
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem; 
+            line-height: 1.1;
+        }
+        #hero .hero-subtitle {
+            font-size: 1.2rem; 
+            color: var(--askesis-light-gray);
+            margin-bottom: 2rem; 
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Estilos para los planes dentro del Hero */
+        .hero-plans-container {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center; 
+            align-items: stretch; 
+            gap: 1rem; 
+            margin-top: 1.5rem; 
+            padding: 0 1rem; 
+            width: 100%; 
+            max-width: 900px; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-plan-card {
+            background-color: rgba(255, 255, 255, 0.1); 
+            border: 2px solid var(--askesis-orange);
+            color: white;
+            padding: 1.25rem 1.5rem; 
+            border-radius: 0.5rem; 
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+            flex-grow: 1; 
+            flex-shrink: 1; 
+            flex-basis: 240px; 
+            min-width: 200px; 
+        }
+        .hero-plan-card:hover {
+            background-color: var(--askesis-orange);
+            border-color: var(--askesis-orange);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(245, 130, 32, 0.4);
+        }
+        .hero-plan-card.recommended {
+            border-color: var(--askesis-green); 
+            background-color: rgba(0, 128, 55, 0.2); 
+        }
+        .hero-plan-card.recommended:hover {
+            background-color: var(--askesis-green);
+            border-color: var(--askesis-green);
+             box-shadow: 0 8px 25px rgba(0, 128, 55, 0.4);
+        }
+
+        .hero-plan-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.25em; 
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .hero-plan-price {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.75em; 
+            font-weight: 900;
+            margin-bottom: 0.25rem;
+        }
+        .hero-plan-note {
+            font-size: 0.75em; 
+            display: block;
+            opacity: 0.9;
+        }
+        .hero-plan-card .recommended-tag-hero { 
+            background-color: var(--askesis-green);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+         .hero-plan-action-button { 
+            background-color: rgba(255,255,255,0.2);
+            border: 1px solid white;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            margin-top: 1rem; 
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .hero-plan-card:hover .hero-plan-action-button {
+            background-color: white;
+            color: var(--askesis-orange); 
+        }
+         .hero-plan-card.recommended:hover .hero-plan-action-button {
+            color: var(--askesis-green);
+        }
+
+
+        .card-item { /* Estilo base para tarjetas, usado por programas y beneficios */
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .card-item:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+        }
+        
+        .card-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-blue);
+            font-size: 1.3em; 
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Estilos mejorados para Programas Específicos */
+        .programs-grid { 
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Un poco más de ancho base */
+            gap: 2rem; 
+        }
+        .program-card { /* Hereda de .card-item */
+            border-left: 5px solid var(--askesis-blue); /* Borde distintivo */
+        }
+        .program-card .program-icon { /* Para iconos de programas */
+            font-size: 2.5rem;
+            color: var(--askesis-blue);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+         .program-card .plan-content { 
+            flex-grow: 1;
+            padding: 1.5rem; /* Más padding */
+        }
+        .program-card .card-title { 
+            font-size: 1.35em; /* Ligeramente más grande */
+            color: var(--askesis-blue);
+        }
+         .program-card .plan-price { 
+            font-size: 1.7em; 
+            margin: 0.75rem 0;
+            color: var(--askesis-orange);
+        }
+        .program-card .plan-price .price-note {
+             font-size: 0.55em; 
+        }
+        .program-card .select-plan-btn { 
+            width: calc(100% - 3rem); 
+            padding: 0.75rem 1rem; 
+            font-size: 0.95em; 
+            margin-top: 1.5rem; /* Más espacio arriba del botón */
+        }
+        .program-card .plan-features li { 
+            font-size: 0.9rem; 
+            margin-bottom: 0.5rem; /* Más espaciado entre features */
+        }
+        .plan-features { list-style: none; padding-left: 0; } 
+        .plan-features li {
+            padding-left: 1.75rem; /* Más padding para el ícono */
+            position: relative;
+        }
+        .plan-features li::before {
+            content: '\f00c'; 
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 4px; 
+            color: var(--askesis-green);
+            font-size: 1.1em; /* Icono un poco más grande */
+        }
+
+
+        .feature-card-qs {
+            background-color: white;
+            padding: 1.5rem; 
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .feature-card-qs:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+        .feature-card-qs .qs-icon {
+            font-size: 2.5rem; 
+            margin-bottom: 0.75rem;
+        }
+        .feature-card-qs .qs-title {
+            font-size: 1.2em; 
+        }
+
+        /* Estilos para Metodología y Beneficios Plegables */
+        .collapsible-section details {
+            border-radius: 8px;
+            border: 1px solid var(--askesis-border-color); /* Borde sutil */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .collapsible-section summary {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.2em;
+            font-weight: 900;
+            padding: 1.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            position: relative; 
+            transition: background-color 0.2s ease;
+        }
+        .collapsible-section summary::-webkit-details-marker,
+        .collapsible-section summary::marker {
+            display: none; 
+        }
+        .collapsible-section summary .summary-icon { 
+            margin-left: 1rem;
+            font-size: 0.7em;
+            transition: transform 0.3s ease-in-out;
+        }
+        .collapsible-section details[open] summary .summary-icon {
+            transform: rotate(180deg);
+        }
+        .collapsible-section .collapsible-content { 
+            padding: 2rem 1.5rem;
+        }
+        /* Estilos específicos para Metodología */
+        #metodologia details { background-color: var(--askesis-dark); }
+        #metodologia summary { color: white; border-bottom: 4px solid var(--askesis-orange); }
+        #metodologia details[open] summary { background-color: var(--askesis-gray); }
+        .metodologia-step-card {
+            border-left: 4px solid var(--askesis-orange);
+            padding: 1.5rem;
+            background-color: var(--askesis-gray); 
+            color: var(--askesis-light-gray);
+            border-radius: 6px; 
+            margin-bottom: 1rem; 
+        }
+         #metodologia .card-title { 
+            color: white; 
+            font-size: 1.3em; 
+        }
+        .metodologia-step-card .step-number {
+            background-color: var(--askesis-orange);
+            color: white;
+            border-radius: 50%;
+            width: 35px; 
+            height: 35px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem; 
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        /* Estilos específicos para Beneficios */
+        #beneficios details { background-color: var(--askesis-bg-white); }
+        #beneficios summary { color: var(--askesis-dark); border-bottom: 4px solid var(--askesis-green); } /* Borde verde para diferenciar */
+        #beneficios details[open] summary { background-color: var(--askesis-accent-blue-light); }
+        .beneficio-card { /* Ya tiene estilos de .card-item */
+            text-align: center; 
+            padding: 1.5rem; /* Ajustado */
+        }
+        .beneficio-card .beneficio-icon {
+            font-size: 2.5rem; 
+            color: var(--askesis-green); /* Iconos de beneficios en verde */
+            margin-bottom: 1rem;
+        }
+        .beneficio-card .beneficio-title {
+            font-size: 1.2em; 
+            color: var(--askesis-blue); /* Título en azul */
+        }
+
+
+        .guia-card {
+            padding: 1.25rem; 
+        }
+        .guia-card .guia-icon {
+            font-size: 2.5rem; 
+        }
+        .guia-card .guia-title {
+            font-size: 1.15em; 
+        }
+        .guia-card .guia-button {
+            padding: 0.6rem 1.2rem; 
+            font-size: 0.9em; 
+        }
+
+        #cta-final .cta-text {
+            font-size: 1.15rem; 
+        }
+        #cta-final .cta-button-final {
+            padding: 0.9rem 2.2rem; 
+            font-size: 1rem; 
+        }
+
+        footer {
+            background-color: var(--askesis-dark);
+            color: #a0aec0;
+            padding: 4rem 1rem 2rem;
+            text-align: center;
+        }
+        footer .footer-logo {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+        footer .footer-tagline { font-size: 0.9rem; color: #718096; margin-bottom: 2rem;}
+        footer .footer-links a { color: #a0aec0; margin: 0 0.75rem; transition: color 0.3s; font-weight: 500;}
+        footer .footer-links a:hover { color: var(--askesis-orange); }
+        footer .social-links-footer a { color: #a0aec0; transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #718096; margin-top: 2.5rem; border-top: 1px solid #4A5568; padding-top: 1.5rem;}
+
+        .floating-btn-container { 
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 10px; 
+        }
+        .floating-btn {
+            width: 50px; 
+            height: 50px;
+            color: #FFF;
+            border-radius: 50%; 
+            text-align: center;
+            font-size: 1.5rem; 
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease; 
+            text-decoration: none;
+            overflow: hidden; 
+        }
+        .floating-btn .btn-text {
+            display: none; 
+            margin-left: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap; 
+        }
+        .floating-btn:hover {
+            width: auto; 
+            min-width: 50px; 
+            padding: 0 1rem; 
+            border-radius: 25px; 
+            transform: scale(1.05); 
+        }
+        .floating-btn:hover .btn-text {
+            display: inline; 
+        }
+        .whatsapp-float {
+            background-color: #25d366;
+        }
+        .whatsapp-float:hover {
+            background-color: #1ebe57;
+        }
+        .guias-float {
+            background-color: var(--askesis-orange);
+        }
+        .guias-float:hover {
+            background-color: #d97019;
+        }
+
+        @media (max-width: 768px) {
+            #hero {
+                padding-top: 80px; 
+                padding-bottom: 3rem;
+                min-height: auto; 
+            }
+            #hero .hero-title {
+                font-size: 2.2rem;    
+                margin-bottom: 0.75rem; 
+            }
+            #hero .hero-subtitle {
+                font-size: 1.1rem;    
+                margin-bottom: 1.5rem;  
+                max-width: 90%;       
+            }
+             .hero-plans-container { 
+                flex-direction: column;
+                align-items: center;
+             }
+             .hero-plan-card {
+                width: 90%; 
+                max-width: 350px; 
+                margin-bottom: 1rem; 
+                flex-basis: auto; 
+             }
+             .hero-plan-card:last-child {
+                margin-bottom: 0;
+             }
+            .section-title-light, .section-title-dark { font-size: 1.8em; }
+            #metodologia summary, #beneficios summary { font-size: 1.8em; } 
+            .main-header .container { padding-left: 1rem; padding-right: 1rem; }
+            .main-header nav.hidden.md\:flex { display: none !important; }
+            .programs-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); } 
+
+        }
+         @media (max-width: 480px) {
+            .floating-btn:hover { 
+                 padding: 0 0.8rem;
+            }
+             .floating-btn .btn-text {
+                 font-size: 0.8rem;
+             }
+             .programs-grid { grid-template-columns: 1fr; } 
+             .hero-plan-card {
+                width: 95%; 
+             }
+        }
+
+    </style>
+</head>
+
+<body class="bg-askesis-bg-light">
+
+    <header class="main-header">
+        <div class="container mx-auto flex items-center justify-between p-4">
+            <a href="#hero" class="text-3xl font-black text-white uppercase tracking-wider font-roboto">Askesis</a>
+            <nav class="hidden md:flex items-center">
+                <a href="#hero" class="nav-link active">Inicio</a>
+                <a href="#quienes-somos" class="nav-link">Quiénes Somos</a>
+                <a href="#programas-especificos" class="nav-link">Programas</a>
+                <a href="#metodologia" class="nav-link">Metodología</a>
+                <a href="#beneficios" class="nav-link">Beneficios</a>
+                <a href="#guias" class="nav-link">Guías Gratis</a>
+                <a href="#cta-final" class="nav-link">Contacto</a>
+                <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20sus%20servicios." target="_blank" class="nav-cta-button ml-4">Únete Ahora</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars fa-lg"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-askesis-dark">
+            <a href="#hero" class="block text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Inicio</a>
+            <a href="#quienes-somos" class="block text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Quiénes Somos</a>
+            <a href="#programas-especificos" class="block text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Programas</a>
+            <a href="#metodologia" class="block text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Metodología</a>
+            <a href="#beneficios" class="block text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Beneficios</a>
+            <a href="#guias" class="block text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Guías Gratis</a>
+            <a href="#cta-final" class="block text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Contacto</a>
+            <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20sus%20servicios." target="_blank" class="block text-askesis-orange text-center font-bold py-4 hover:bg-askesis-gray">Únete Ahora</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="page-section scroll-mt-header">
+            <div class="content-wrapper px-4 flex flex-col items-center"> 
+                <h1 class="hero-title">Transforma Tu Físico. <span class="text-askesis-orange">Alcanza Tus Metas.</span></h1>
+                <p class="hero-subtitle">
+                    En Askesis, fusionamos la ciencia del ejercicio con un enfoque 100% personalizado para guiarte.
+                    Supera pruebas físicas, potencia tu rendimiento deportivo o construye un estilo de vida más fuerte y saludable.
+                </p>
+                
+                <div class="hero-plans-container">
+                    <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20el%20Plan%20Mensual." target="_blank" class="hero-plan-card">
+                        <div>
+                            <h3 class="hero-plan-title">Plan Mensual</h3>
+                            <p class="hero-plan-price">$50.000</p>
+                            <span class="hero-plan-note">CLP / Mes</span>
+                        </div>
+                        <span class="hero-plan-action-button mt-3"><i class="fab fa-whatsapp mr-2"></i>Consultar</span>
+                    </a>
+
+                    <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20el%20Plan%20Trimestral." target="_blank" class="hero-plan-card recommended">
+                        <div>
+                            <span class="recommended-tag-hero">Más Popular</span>
+                            <h3 class="hero-plan-title">Plan Trimestral</h3>
+                            <p class="hero-plan-price">$120.000</p>
+                            <span class="hero-plan-note">CLP / Trimestre</span>
+                            <span class="hero-plan-note text-askesis-green font-semibold">(Ahorra $30.000)</span>
+                        </div>
+                        <span class="hero-plan-action-button mt-3"><i class="fab fa-whatsapp mr-2"></i>Consultar</span>
+                    </a>
+
+                    <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20Sesi%C3%B3n%20%C3%9Anica." target="_blank" class="hero-plan-card">
+                        <div>
+                            <h3 class="hero-plan-title">Sesión Única</h3>
+                            <p class="hero-plan-price">$20.000</p>
+                            <span class="hero-plan-note">CLP / Sesión</span>
+                        </div>
+                         <span class="hero-plan-action-button mt-3"><i class="fab fa-whatsapp mr-2"></i>Consultar</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="quienes-somos" class="page-section scroll-mt-header">
+            <div class="content-wrapper">
+                <h2 class="section-title-dark"><i class="fas fa-users"></i>Quiénes Somos y Por Qué Elegirnos</h2>
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <p class="text-lg">Somos tu aliado estratégico en el camino hacia tu mejor versión. En Askesis, la <strong class="text-askesis-blue">pasión por el movimiento</strong> se une con la <strong class="text-askesis-blue">rigurosidad científica</strong> para ofrecerte un servicio de entrenamiento personalizado que realmente marca la diferencia.</p>
+                    <p class="mt-4 text-lg">Dirigido por <strong class="text-askesis-orange">Luis Patricio Ruiz Ruiz</strong>, Técnico Deportivo y atleta especializado, nuestro compromiso es contigo, con tus metas y con tu bienestar integral.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="feature-card-qs">
+                        <i class="fas fa-microscope qs-icon"></i>
+                        <h3 class="qs-title">Enfoque Científico</h3>
+                        <p class="text-sm">Planes basados en evidencia, no en modas. Maximizamos tu progreso de forma segura y eficaz.</p>
+                    </div>
+                    <div class="feature-card-qs">
+                        <i class="fas fa-user-check qs-icon"></i>
+                        <h3 class="qs-title">100% Personalizado</h3>
+                        <p class="text-sm">Tu plan es único, diseñado para tus objetivos, tu cuerpo y tu ritmo de vida. No hay dos iguales.</p>
+                    </div>
+                    <div class="feature-card-qs">
+                        <i class="fas fa-headset qs-icon"></i>
+                        <h3 class="qs-title">Soporte Continuo</h3>
+                        <p class="text-sm">Estamos contigo en cada paso, resolviendo dudas, ajustando tu plan y motivándote a seguir.</p>
+                    </div>
+                    <div class="feature-card-qs">
+                        <i class="fas fa-shield-heart qs-icon"></i>
+                        <h3 class="qs-title">Prevención y Técnica</h3>
+                        <p class="text-sm">Priorizamos tu salud. Técnica impecable y progresión inteligente para evitar lesiones.</p>
+                    </div>
+                 </div>
+            </div>
+        </section>
+        
+        <section id="programas-especificos" class="page-section scroll-mt-header">
+            <div class="content-wrapper">
+                <h2 class="section-title-dark"><i class="fas fa-star"></i>Programas Específicos Destacados</h2>
+                <p class="text-center text-lg mb-10 max-w-3xl mx-auto">Explora nuestros programas especializados, diseñados para objetivos concretos y transformaciones profundas.</p>
+                <div class="programs-grid"> 
+                    <div class="program-card card-item">
+                        <div class="program-icon"><i class="fas fa-user-ninja"></i></div>
+                        <div class="plan-content">
+                            <h3 class="card-title text-center">Programa Iniciación Calistenia</h3>
+                            <p class="text-center text-xs mb-3">Principiantes (hombres/mujeres) queriendo dominar su peso corporal (3 Meses).</p>
+                             <div class="plan-price text-center">Consulta<span class="price-note">Valor</span></div>
+                            <ul class="plan-features my-4 text-xs">
+                                <li>Logra tus primeras dominadas y 20 flexiones estrictas.</li>
+                                <li>Desarrolla un L-Sit sólido.</li>
+                                <li>Progresiones claras y seguras paso a paso.</li>
+                                <li>Planificación de 3 meses, evaluación y soporte.</li>
+                            </ul>
+                        </div>
+                        <a href="https://OmniaInBonum.github.io/Plan-Calistenia-3-meses/Programa%20de%20Calistenia%20Askesis%20-%20Acceso%20Semanal.html" target="_blank" class="select-plan-btn btn-askesis-blue">
+                            <i class="fas fa-arrow-right mr-1"></i>Más Info (Calistenia)
+                        </a>
+                    </div>
+                     <div class="program-card card-item">
+                        <div class="program-icon"><i class="fas fa-dumbbell"></i></div>
+                        <div class="plan-content">
+                            <h3 class="card-title text-center">Programa Transformación Total</h3>
+                            <p class="text-center text-xs mb-3">Ideal para hombres buscando maximizar músculo, fuerza Y potencia (12-16 Semanas).</p>
+                            <div class="plan-price text-center">Consulta<span class="price-note">Valor</span></div>
+                            <ul class="plan-features my-4 text-xs">
+                                <li><strong>Bloque 1:</strong> Arquitectura Muscular (Hipertrofia).</li>
+                                <li><strong>Bloque 2:</strong> Dominio de Cargas (Fuerza Máxima).</li>
+                                <li><strong>Bloque 3:</strong> Desarrollo de Potencia.</li>
+                                <li>Planificación detallada y evaluación inicial.</li>
+                            </ul>
+                        </div>
+                        <a href="https://omniainbonum.github.io/WEB-Akesis/Web%203%20bloques.html" target="_blank" class="select-plan-btn btn-askesis-green">
+                            <i class="fas fa-arrow-right mr-1"></i>Más Info (3 Bloques)
+                        </a>
+                    </div>
+                    <div class="program-card card-item">
+                         <div class="program-icon"><i class="fas fa-female"></i></div>
+                        <div class="plan-content">
+                            <h3 class="card-title text-center">Programa GAP Femenino</h3>
+                            <p class="text-center text-xs mb-3">Ideal para mujeres buscando fortalecer y definir Glúteos, Abdomen y Piernas.</p>
+                             <div class="plan-price text-center">Consulta<span class="price-note">Valor</span></div>
+                            <ul class="plan-features my-4 text-xs">
+                                <li>Ejercicios seleccionados para máximo estímulo en GAP.</li>
+                                <li>Énfasis en técnica y conexión mente-músculo.</li>
+                                <li>Progresión adaptada para tonificación y fuerza funcional.</li>
+                                <li>Mejora de postura y estabilidad del core.</li>
+                            </ul>
+                        </div>
+                        <a href="https://omniainbonum.github.io/WEB-Akesis/GAP%20WEB.html" target="_blank" class="select-plan-btn btn-askesis-blue">
+                            <i class="fas fa-arrow-right mr-1"></i>Más Info (GAP)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="metodologia" class="page-section scroll-mt-header collapsible-section">
+            <div class="content-wrapper">
+                <details>
+                    <summary class="section-title-light cursor-pointer">
+                        Nuestra Metodología Probada
+                        <span class="summary-icon"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="collapsible-content metodologia-content">
+                        <p class="text-center text-lg mb-10 max-w-3xl mx-auto">Un proceso claro y estructurado, diseñado para llevarte desde tu punto actual hasta tus metas más ambiciosas.</p>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="card-item metodologia-step-card">
+                                <div class="step-number">1</div>
+                                <h3 class="card-title">Diagnóstico Detallado</h3>
+                                <p class="text-sm">Análisis exhaustivo de tus metas, historial, capacidades y contexto para crear la base de tu plan.</p>
+                            </div>
+                            <div class="card-item metodologia-step-card">
+                                <div class="step-number">2</div>
+                                <h3 class="card-title">Planificación Estratégica</h3>
+                                <p class="text-sm">Diseño de un programa 100% personalizado, con ejercicios, progresiones y variables ajustadas a ti.</p>
+                            </div>
+                            <div class="card-item metodologia-step-card">
+                                <div class="step-number">3</div>
+                                <h3 class="card-title">Implementación y Soporte</h3>
+                                <p class="text-sm">Acompañamiento constante, feedback técnico y ajustes dinámicos para asegurar tu avance.</p>
+                            </div>
+                            <div class="card-item metodologia-step-card">
+                                <div class="step-number">4</div>
+                                <h3 class="card-title">Evolución Continua</h3>
+                                <p class="text-sm">Consolidamos tus logros y, si lo deseas, trazamos nuevas metas para seguir superando tus límites.</p>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section id="beneficios" class="page-section scroll-mt-header collapsible-section">
+            <div class="content-wrapper">
+                 <details>
+                    <summary class="section-title-dark cursor-pointer">
+                        Beneficios Que Transforman
+                        <span class="summary-icon"><i class="fas fa-chevron-down"></i></span>
+                    </summary>
+                    <div class="collapsible-content">
+                        <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Con Askesis, no solo entrenas: inviertes en una mejora integral de tu calidad de vida y rendimiento.</p>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"> 
+                            <div class="card-item beneficio-card"> 
+                                <i class="fas fa-map-signs beneficio-icon"></i>
+                                <h3 class="beneficio-title">Claridad y Dirección</h3>
+                                <p class="text-sm">Un plan preciso que te dice qué, cómo y por qué, optimizando cada minuto de tu esfuerzo.</p>
+                            </div>
+                            <div class="card-item beneficio-card">
+                                <i class="fas fa-bullseye beneficio-icon"></i>
+                                <h3 class="beneficio-title">Resultados Medibles</h3>
+                                <p class="text-sm">Progreso tangible hacia tus metas, respaldado por la ciencia y un seguimiento detallado.</p>
+                            </div>
+                            <div class="card-item beneficio-card">
+                                <i class="fas fa-shield-alt beneficio-icon"></i>
+                                <h3 class="beneficio-title">Entrenamiento Seguro</h3>
+                                <p class="text-sm">Minimiza el riesgo de lesiones con un enfoque en la técnica correcta y una progresión inteligente.</p>
+                            </div>
+                            <div class="card-item beneficio-card">
+                                <i class="fas fa-fire beneficio-icon"></i>
+                                <h3 class="beneficio-title">Motivación Constante</h3>
+                                <p class="text-sm">El soporte cercano y ver tus avances mantendrán tu compromiso y energía al máximo.</p>
+                            </div>
+                            <div class="card-item beneficio-card">
+                                <i class="fas fa-user-graduate beneficio-icon"></i>
+                                <h3 class="beneficio-title">Autonomía y Conocimiento</h3>
+                                <p class="text-sm">Aprende los fundamentos de tu entrenamiento, ganando confianza y herramientas para el futuro.</p>
+                            </div>
+                             <div class="card-item beneficio-card">
+                                <i class="fas fa-heart-pulse beneficio-icon"></i>
+                                <h3 class="beneficio-title">Bienestar Integral</h3>
+                                <p class="text-sm">Más allá del físico, mejora tu energía, tu salud y tu relación con el movimiento y tu cuerpo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <section id="guias" class="page-section scroll-mt-header">
+            <div class="content-wrapper">
+                <h2 class="section-title-dark"><i class="fas fa-book-open"></i>Guías Gratuitas Para Potenciar Tu Progreso</h2>
+                <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Accede a material exclusivo diseñado para complementar tu entrenamiento y acelerar tus resultados. ¡Totalmente gratis!</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"> 
+                    <div class="guia-card">
+                        <div>
+                            <i class="fas fa-key guia-icon"></i>
+                            <h3 class="guia-title">3 Pilares Clave para Tu Progreso</h3>
+                        </div>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Gratuita%20-%203%20Pilares%20Clave%20para%20Tu%20Progreso.html" target="_blank" class="guia-button">
+                            <i class="fas fa-external-link-alt mr-2"></i>Ver Guía
+                        </a>
+                    </div>
+                    <div class="guia-card">
+                        <div>
+                            <i class="fas fa-running guia-icon"></i>
+                            <h3 class="guia-title">Guía Entrenamiento Excéntrico</h3>
+                        </div>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Guia%20Entrenamiento%20Excentrico.html" target="_blank" class="guia-button">
+                            <i class="fas fa-external-link-alt mr-2"></i>Ver Guía
+                        </a>
+                    </div>
+                    <div class="guia-card">
+                        <div>
+                            <i class="fas fa-fire-alt guia-icon"></i>
+                            <h3 class="guia-title">Guía Gratuita - Calentamiento</h3>
+                        </div>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Guia%20Gratuita%20-%20Calentamiento.html" target="_blank" class="guia-button">
+                            <i class="fas fa-external-link-alt mr-2"></i>Ver Guía
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta-final" class="page-section scroll-mt-header">
+            <div class="content-wrapper text-center">
+                <h2 class="section-title-light"><i class="fas fa-paper-plane"></i>¿Listo/a Para Empezar Tu Transformación?</h2>
+                <p class="cta-text max-w-2xl mx-auto">
+                    No esperes más para invertir en ti. Da el primer paso hacia la versión más fuerte, saludable y capaz de ti mismo/a.
+                    Contáctame hoy y comencemos a diseñar tu camino al éxito.
+                </p>
+                <div class="mt-10">
+                    <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20listo/a%20para%20comenzar%20mi%20transformaci%C3%B3n." target="_blank" class="cta-button-final text-lg">
+                        <i class="fab fa-whatsapp mr-2"></i>¡Sí, Quiero Empezar!
+                    </a>
+                </div>
+                 <div class="mt-8 text-sm">
+                    <p>O envíame un email a: <a href="mailto:luistdu111@gmail.com" class="font-semibold text-askesis-orange hover:underline">luistdu111@gmail.com</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="content-wrapper">
+            <div class="footer-logo">Askesis</div>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="mb-8 footer-links">
+                <a href="#hero">Inicio</a> |
+                <a href="#quienes-somos">Quiénes Somos</a> |
+                <a href="#programas-especificos">Programas</a> |
+                <a href="#metodologia">Metodología</a> |
+                <a href="#beneficios">Beneficios</a> |
+                <a href="#guias">Guías</a> |
+                <a href="#cta-final">Contacto</a>
+            </div>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20desde%20la%20web%20Askesis" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20tengo%20una%20consulta." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooter"></span> Askesis. Todos los derechos reservados. Diseño inspirado y adaptado.</p>
+        </div>
+    </footer>
+
+    <div class="floating-btn-container">
+        <a href="#guias" class="floating-btn guias-float" title="Ver Guías Gratuitas">
+            <i class="fas fa-book-open"></i> <span class="btn-text">Guías</span>
+        </a>
+        <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20necesito%20informaci%C3%B3n%20sobre%20sus%20planes." class="floating-btn whatsapp-float" target="_blank" title="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i> <span class="btn-text">WhatsApp</span>
+        </a>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const yearSpan = document.getElementById('currentYearFooter');
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            const header = document.querySelector('.main-header');
+            let headerHeight = 0;
+
+            function updateHeaderCalculations() {
+                if (header) {
+                    headerHeight = header.offsetHeight;
+                }
+                const sectionsForScrollMargin = document.querySelectorAll('.scroll-mt-header');
+                sectionsForScrollMargin.forEach(section => {
+                    section.style.scrollMarginTop = `${headerHeight}px`;
+                });
+            }
+
+            updateHeaderCalculations();
+            window.addEventListener('resize', updateHeaderCalculations);
+
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuIcon = mobileMenuButton ? mobileMenuButton.querySelector('i') : null;
+
+            if (mobileMenuButton && mobileMenu && mobileMenuIcon) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    mobileMenuIcon.classList.toggle('fa-bars');
+                    mobileMenuIcon.classList.toggle('fa-times');
+                });
+            }
+            
+            const allNavLinks = document.querySelectorAll('header nav a.nav-link, #mobile-menu a.nav-link-mobile, a.guias-float, .hero-plan-card, .footer-links a'); 
+
+            allNavLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = link.getAttribute('href');
+                    
+                    if (targetId && targetId.startsWith('#') && targetId.length > 1) { 
+                        e.preventDefault();
+                        const targetElement = document.querySelector(targetId);
+
+                        if (targetElement) {
+                            if (link.classList.contains('nav-link-mobile') && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                                mobileMenu.classList.add('hidden');
+                                if (mobileMenuIcon) { 
+                                    mobileMenuIcon.classList.remove('fa-times');
+                                    mobileMenuIcon.classList.add('fa-bars');
+                                }
+                            }
+                            
+                            const headerOffset = headerHeight; 
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: "smooth"
+                            });
+                        }
+                    } else if (link.classList.contains('nav-link-mobile') && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        if (mobileMenuIcon) {
+                            mobileMenuIcon.classList.remove('fa-times');
+                            mobileMenuIcon.classList.add('fa-bars');
+                        }
+                    }
+                });
+            });
+            
+            // Funcionalidad para secciones plegables
+            const collapsibleSections = document.querySelectorAll('.collapsible-section details');
+            collapsibleSections.forEach(detailsElement => {
+                const summaryIcon = detailsElement.querySelector('summary .summary-icon i');
+                if (summaryIcon) {
+                    detailsElement.addEventListener('toggle', () => {
+                        if (detailsElement.open) {
+                            summaryIcon.classList.remove('fa-chevron-down');
+                            summaryIcon.classList.add('fa-chevron-up');
+                        } else {
+                            summaryIcon.classList.remove('fa-chevron-up');
+                            summaryIcon.classList.add('fa-chevron-down');
+                        }
+                    });
+                }
+            });
+
+
+            const sections = document.querySelectorAll('main > section[id]');
+            const desktopNavLinks = document.querySelectorAll('header nav a.nav-link'); 
+            const mobileNavLinksForActiveState = document.querySelectorAll('#mobile-menu a.nav-link-mobile');
+
+
+            function setActiveLink() {
+                let currentActiveId = sections.length > 0 ? sections[0].getAttribute('id') : ''; 
+
+                for (let i = sections.length - 1; i >= 0; i--) {
+                    const section = sections[i];
+                    const sectionTop = section.offsetTop - headerHeight;
+                    
+                    if (window.scrollY >= sectionTop - (window.innerHeight * 0.3) ) { 
+                        currentActiveId = section.getAttribute('id');
+                        break; 
+                    }
+                }
+                
+                desktopNavLinks.forEach(link => {
+                    link.classList.remove('active', 'text-askesis-orange');
+                    if (link.getAttribute('href') === `#${currentActiveId}`) {
+                        link.classList.add('active', 'text-askesis-orange');
+                    }
+                });
+                mobileNavLinksForActiveState.forEach(link => {
+                    link.classList.remove('text-askesis-orange', 'font-bold'); 
+                     if (link.getAttribute('href') === `#${currentActiveId}`) {
+                        link.classList.add('text-askesis-orange', 'font-bold');
+                    }
+                });
+            }
+            
+            if (sections.length > 0) { 
+                setActiveLink();
+                window.addEventListener('scroll', setActiveLink);
+                window.addEventListener('resize', setActiveLink); 
+            }
+        });
+    </script>
+
+</body>
+</html>
