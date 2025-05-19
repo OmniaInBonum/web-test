@@ -14,14 +14,14 @@
             theme: {
                 extend: {
                     colors: {
-                        'askesis-blue': '#005A9C', 
-                        'askesis-green': '#008037', 
-                        'askesis-orange': '#F58220', 
-                        'askesis-dark': '#121212',  
-                        'askesis-gray': '#1E1E1E',  
-                        'askesis-light-gray': '#B3B3B3', 
-                        'askesis-text-white': '#FFFFFF', 
-                        'askesis-border': '#333333', 
+                        'askesis-blue': '#005A9C', // Azul Askesis (secundario)
+                        'askesis-green': '#008037', // Verde Askesis
+                        'askesis-orange': '#F58220', // Naranja Askesis (acento principal)
+                        'askesis-dark': '#121212',  // Fondo principal muy oscuro (casi negro)
+                        'askesis-gray': '#1E1E1E',  // Fondo de tarjetas y elementos secundarios oscuros
+                        'askesis-light-gray': '#B3B3B3', // Texto secundario
+                        'askesis-text-white': '#FFFFFF', // Texto principal
+                        'askesis-border': '#333333', // Bordes sutiles
                     },
                     fontFamily: {
                         'lato': ['Lato', 'sans-serif'],
@@ -55,6 +55,7 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
+        /* Header and Navigation */
         .main-header {
             position: fixed;
             top: 0;
@@ -106,8 +107,8 @@
         }
         
         #hero {
-            /* REEMPLAZAR LA URL DE FONDO SI RENOMBRAS LA IMAGEN DEL HERO */
-            background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(18, 18, 18, 0.85)), url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/meng-2025-05-17-587-Ultra-realistic%20photo%20of%20a%20personal%20trainer%20looking%20a%20women%20doing%20squats%2C%20capt....jpeg') no-repeat center center;
+            /* IMAGEN DE HERO CORREGIDA */
+            background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(18, 18, 18, 0.85)), url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/port.jpeg') no-repeat center center;
             background-size: cover;
             background-attachment: fixed; 
             color: var(--askesis-text-white);
@@ -164,6 +165,7 @@
             font-weight: 400; 
         }
 
+        /* Estilos para los planes dentro del Hero (estilo King of Weighted) */
         .hero-plans-container-kow {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -253,6 +255,8 @@
             background-color: #00662c;
         }
         
+
+        /* Estilos para Programas Específicos (King of Weighted Style) */
         .programs-grid-kow { 
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
@@ -322,6 +326,7 @@
             background-color: #d97019;
         }
 
+
         .feature-card-qs-dark { 
             background-color: var(--askesis-gray);
             padding: 1.5rem; 
@@ -350,6 +355,7 @@
             font-size: 0.9em;
         }
 
+        /* Estilos para Metodología y Beneficios Plegables (Dark Theme) */
         .collapsible-section-dark details {
             border-radius: 8px;
             border: 1px solid var(--askesis-border); 
@@ -390,6 +396,7 @@
             background-color: var(--askesis-gray);
             border-top: 1px solid var(--askesis-border);
         }
+        /* Metodología específica */
         #metodologia summary { border-bottom: 3px solid var(--askesis-orange); }
         #metodologia details[open] summary { background-color: #2a2a2a; }
         .metodologia-step-card-dark {
@@ -417,6 +424,7 @@
             font-weight: 700;
             margin-bottom: 0.75rem;
         }
+        /* Beneficios específica */
         #beneficios summary { border-bottom: 3px solid var(--askesis-green); }
         #beneficios details[open] summary { background-color: #2a2a2a; }
         .beneficio-card-dark { 
@@ -442,6 +450,7 @@
             font-size: 0.9em;
         }
 
+        /* Estilos Refinados para Guías (Dark Theme) */
         .guia-card-dark {
             background-color: var(--askesis-gray);
             border-radius: 0.5rem; 
@@ -493,6 +502,7 @@
         .guia-card-dark .guia-button-dark:hover i {
             transform: translateX(3px);
         }
+
 
         #cta-final .cta-text {
             font-size: 1.15rem; 
@@ -714,7 +724,7 @@
                 <p class="text-center text-lg mb-10 max-w-3xl mx-auto text-askesis-light-gray">Explora nuestros programas especializados, diseñados para objetivos concretos y transformaciones profundas.</p>
                 <div class="programs-grid-kow"> 
                     <div class="program-card-kow">
-                        <img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/jimeng-2025-05-17-594-Ultra-realistic%20photo%20of%20a%20shirtless%20athletic%20man%20doing%20strict%20pull-ups%20on%20a%20m....jpeg" alt="Programa Iniciación Calistenia">
+                        <img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/dominadas.jpeg" alt="Programa Iniciación Calistenia">
                         <div class="program-content-kow">
                             <div>
                                 <h3 class="program-title-kow">Programa Iniciación Calistenia</h3>
@@ -727,7 +737,7 @@
                         </div>
                     </div>
                      <div class="program-card-kow">
-                        <img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/1747533099481.jpg" alt="Programa Transformación Total">
+                        <img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/Sentadilla%20Casa.jpg" alt="Programa Transformación Total">
                         <div class="program-content-kow">
                             <div>
                                 <h3 class="program-title-kow">Programa Transformación Total</h3>
@@ -740,7 +750,7 @@
                         </div>
                     </div>
                     <div class="program-card-kow">
-                        <img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/jimeng-2025-05-17-591-Ultra-realistic%20photo%20of%20a%20personal%20trainer%20looking%20a%20women%20doing%20%20bulgarian%20s....jpeg" alt="Programa GAP Femenino">
+                         <img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/portada%20askesis.jpeg" alt="Programa GAP Femenino">
                         <div class="program-content-kow">
                            <div>
                                 <h3 class="program-title-kow">Programa GAP Femenino</h3>
