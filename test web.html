@@ -125,11 +125,10 @@
             padding-top: 80px; 
         }
         
-        /* Fondo para Quienes Somos */
         #quienes-somos { 
-            background: linear-gradient(rgba(237, 242, 247, 0.85), rgba(237, 242, 247, 0.95)), url('https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
+            background: linear-gradient(rgba(237, 242, 247, 0.85), rgba(237, 242, 247, 0.92)), url('https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
             background-size: cover;
-            background-attachment: fixed; /* Efecto parallax sutil */
+            background-attachment: fixed; 
         }
         
         #programas-especificos { 
@@ -140,11 +139,10 @@
         #metodologia { background-color: var(--askesis-dark); color: var(--askesis-light-gray); }
         #beneficios { background-color: var(--askesis-bg-white); } 
         
-        /* Fondo para Guías */
         #guias { 
-            background: linear-gradient(rgba(237, 242, 247, 0.9), rgba(237, 242, 247, 0.95)), url('https://images.pexels.com/photos/265076/pexels-photo-265076.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
+            background: linear-gradient(rgba(237, 242, 247, 0.88), rgba(237, 242, 247, 0.93)), url('https://images.pexels.com/photos/265076/pexels-photo-265076.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
             background-size: cover;
-            background-attachment: fixed; /* Efecto parallax sutil */
+            background-attachment: fixed; 
         }
         #cta-final { background-color: var(--askesis-blue); color: white; }
 
@@ -304,9 +302,8 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.10);
         }
         
-        .card-title {
+        .card-title { 
             font-family: 'Roboto', sans-serif;
-            color: var(--askesis-blue);
             font-size: 1.3em; 
             font-weight: 700;
             margin-bottom: 0.5rem;
@@ -320,10 +317,11 @@
         }
         .program-card { 
             border-left: 5px solid var(--askesis-blue); 
+            background-color: var(--askesis-bg-white); 
         }
         .program-card .program-icon { 
-            font-size: 2.5rem;
-            color: var(--askesis-blue);
+            font-size: 3rem; 
+            color: var(--askesis-blue); 
             margin-bottom: 1rem;
             text-align: center;
         }
@@ -332,8 +330,8 @@
             padding: 1.5rem; 
         }
         .program-card .card-title { 
-            font-size: 1.35em; 
-            color: var(--askesis-blue);
+            font-size: 1.4em; 
+            color: var(--askesis-blue); 
         }
          .program-card .plan-price { 
             font-size: 1.7em; 
@@ -377,9 +375,10 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             text-align: center;
             transition: all 0.3s ease;
+            border-top: 4px solid var(--askesis-orange); 
         }
-        #quienes-somos .feature-card-qs { /* Asegurar que las tarjetas en quienes somos no tengan fondo de imagen */
-             background-color: white;
+        #quienes-somos .feature-card-qs { 
+             background-color: white; 
         }
         .feature-card-qs:hover {
             transform: translateY(-3px);
@@ -387,10 +386,12 @@
         }
         .feature-card-qs .qs-icon {
             font-size: 2.5rem; 
+            color: var(--askesis-orange); 
             margin-bottom: 0.75rem;
         }
         .feature-card-qs .qs-title {
             font-size: 1.2em; 
+            color: var(--askesis-blue); 
         }
 
         /* Estilos para Metodología y Beneficios Plegables */
@@ -398,7 +399,7 @@
             border-radius: 8px;
             border: 1px solid var(--askesis-border-color); 
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            margin-bottom: 2rem; /* Espacio entre secciones plegables */
+            margin-bottom: 2rem; 
         }
         .collapsible-section summary {
             font-family: 'Roboto', sans-serif;
@@ -466,7 +467,8 @@
         .beneficio-card { 
             text-align: center; 
             padding: 1.5rem; 
-            background-color: var(--askesis-bg-white); /* Asegurar fondo blanco para tarjetas de beneficios */
+            background-color: var(--askesis-bg-white); 
+            border-top: 4px solid var(--askesis-green); 
         }
         .beneficio-card .beneficio-icon {
             font-size: 2.5rem; 
@@ -478,21 +480,60 @@
             color: var(--askesis-blue); 
         }
 
-
+        /* Estilos Refinados para Guías */
         .guia-card {
-            padding: 1.25rem; 
-            background-color: var(--askesis-bg-white); /* Asegurar fondo blanco para tarjetas de guías */
+            background-color: var(--askesis-bg-white);
+            border-radius: 10px; /* Bordes más suaves */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06); /* Sombra más sutil */
+            padding: 1.5rem; 
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1px solid var(--askesis-border-color); /* Borde general sutil */
+        }
+        #guias .guia-card:hover { 
+             transform: translateY(-6px);
+             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
         .guia-card .guia-icon {
-            font-size: 2.5rem; 
+            font-size: 2.8rem; /* Icono un poco más grande */
+            color: var(--askesis-green); 
+            margin-bottom: 1rem;
         }
         .guia-card .guia-title {
-            font-size: 1.15em; 
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2em; /* Título un poco más grande */
+            color: var(--askesis-blue); /* Título en azul para consistencia */
+            font-weight: 700;
+            margin-bottom: 1rem;
+            flex-grow: 1;
         }
-        .guia-card .guia-button {
-            padding: 0.6rem 1.2rem; 
-            font-size: 0.9em; 
+        .guia-card .guia-button { /* Botón más refinado */
+            display: inline-block;
+            background-color: transparent;
+            color: var(--askesis-green);
+            padding: 0.5rem 0; /* Solo padding vertical para que parezca más un enlace */
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            margin-top: 1rem;
+            border: 2px solid transparent; /* Para mantener el espacio en hover */
         }
+         .guia-card .guia-button:hover {
+            color: #005c2c; /* Verde más oscuro */
+            text-decoration: underline;
+        }
+        .guia-card .guia-button i { /* Icono dentro del botón/enlace */
+            margin-left: 0.5rem;
+            transition: transform 0.2s ease-in-out;
+        }
+        .guia-card .guia-button:hover i {
+            transform: translateX(3px);
+        }
+
 
         #cta-final .cta-text {
             font-size: 1.15rem; 
@@ -887,7 +928,7 @@
                             <h3 class="guia-title">3 Pilares Clave para Tu Progreso</h3>
                         </div>
                         <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Gratuita%20-%203%20Pilares%20Clave%20para%20Tu%20Progreso.html" target="_blank" class="guia-button">
-                            <i class="fas fa-external-link-alt mr-2"></i>Ver Guía
+                            Ver Guía <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                     <div class="guia-card">
@@ -896,7 +937,7 @@
                             <h3 class="guia-title">Guía Entrenamiento Excéntrico</h3>
                         </div>
                         <a href="https://omniainbonum.github.io/GuiasGratis/Guia%20Entrenamiento%20Excentrico.html" target="_blank" class="guia-button">
-                            <i class="fas fa-external-link-alt mr-2"></i>Ver Guía
+                            Ver Guía <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                     <div class="guia-card">
@@ -905,7 +946,7 @@
                             <h3 class="guia-title">Guía Gratuita - Calentamiento</h3>
                         </div>
                         <a href="https://omniainbonum.github.io/GuiasGratis/Guia%20Gratuita%20-%20Calentamiento.html" target="_blank" class="guia-button">
-                            <i class="fas fa-external-link-alt mr-2"></i>Ver Guía
+                            Ver Guía <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
