@@ -9,6 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" type="image/jpeg">
     <script>
         tailwind.config = {
             theme: {
@@ -19,7 +20,7 @@
                         'askesis-orange': '#F58220', // Naranja Askesis (acento principal)
                         'askesis-dark': '#121212',  // Fondo principal muy oscuro (casi negro)
                         'askesis-gray': '#1E1E1E',  // Fondo de tarjetas y elementos secundarios oscuros
-                        'askesis-light-gray': '#B3B3B3', // Texto secundario
+                        'askesis-light-gray': '#CCCCCC', // Texto secundario (ligeramente más claro para mejor contraste)
                         'askesis-text-white': '#FFFFFF', // Texto principal
                         'askesis-border': '#333333', // Bordes sutiles
                     },
@@ -39,7 +40,7 @@
             --askesis-orange: #F58220;
             --askesis-dark: #121212;
             --askesis-gray: #1E1E1E;
-            --askesis-light-gray: #B3B3B3;
+            --askesis-light-gray: #CCCCCC; 
             --askesis-text-white: #FFFFFF;
             --askesis-border: #333333;
         }
@@ -76,22 +77,23 @@
             margin: 0 0.25rem;
             border-radius: 0.25rem;
             font-weight: 600; 
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.2s ease; 
             text-transform: uppercase;
             font-size: 0.8rem; 
         }
         .nav-link:hover, .nav-link.active {
             color: var(--askesis-orange);
+            transform: translateY(-2px); 
         }
         .nav-cta-button {
             background-color: var(--askesis-orange);
             color: var(--askesis-dark) !important; 
-            padding: 0.4rem 1rem; /* Reducido de 0.6rem 1.2rem */
+            padding: 0.4rem 1rem;
             border-radius: 0.375rem;
             font-weight: 700; 
             transition: background-color 0.3s ease, transform 0.3s ease;
             text-transform: uppercase;
-            font-size: 0.75rem; /* Ajustado el tamaño de fuente ligeramente */
+            font-size: 0.75rem;
         }
         .nav-cta-button:hover {
             background-color: #d97019; 
@@ -103,7 +105,7 @@
         }
 
         .page-section {
-            padding: 3.5rem 1.5rem; 
+            padding: 4rem 1.5rem; 
         }
         
         #hero {
@@ -120,7 +122,8 @@
             padding-top: 100px; 
             padding-bottom: 4rem;
         }
-        #quienes-somos, #metodologia, #beneficios, #guias, #programas-especificos { 
+        /* MODIFICADO: Se quita #metodologia-beneficios y se usa #beneficios directamente si es necesario */
+        #quienes-somos, #beneficios, #guias, #programas-especificos { 
             background-color: var(--askesis-dark); 
         }
         #cta-final { background-color: var(--askesis-gray); color: var(--askesis-text-white); }
@@ -164,7 +167,6 @@
             font-weight: 400; 
         }
 
-        /* Estilos para los planes dentro del Hero (estilo King of Weighted) */
         .hero-plans-container-kow {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -194,6 +196,7 @@
         }
         .hero-plan-card-kow.recommended {
             border-color: var(--askesis-green); 
+            box-shadow: 0 0 15px rgba(0, 128, 55, 0.3); 
         }
         .hero-plan-card-kow.recommended:hover {
             border-color: var(--askesis-green);
@@ -249,13 +252,12 @@
         }
         .hero-plan-card-kow.recommended .hero-plan-action-button-kow {
             background-color: var(--askesis-green);
+            border-color: var(--askesis-green);
         }
         .hero-plan-card-kow.recommended:hover .hero-plan-action-button-kow {
             background-color: #00662c;
         }
         
-
-        /* Estilos para Programas Específicos (King of Weighted Style) */
         .programs-grid-kow { 
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
@@ -269,10 +271,23 @@
             display: flex;
             flex-direction: column;
             border: 1px solid var(--askesis-border);
+            position: relative; 
         }
         .program-card-kow:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .program-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--askesis-orange);
+            color: var(--askesis-dark);
+            padding: 0.25rem 0.6rem;
+            border-radius: 0.25rem;
+            font-size: 0.7rem;
+            font-weight: bold;
+            z-index: 1;
         }
         .program-card-kow img {
             width: 100%;
@@ -325,7 +340,6 @@
             background-color: #d97019;
         }
 
-
         .feature-card-qs-dark { 
             background-color: var(--askesis-gray);
             padding: 1.5rem; 
@@ -335,36 +349,41 @@
             border-top: 3px solid var(--askesis-orange); 
         }
         .feature-card-qs-dark:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 25px rgba(245, 130, 32, 0.15); 
         }
         .feature-card-qs-dark .qs-icon {
             font-size: 2.5rem; 
             color: var(--askesis-orange); 
             margin-bottom: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+        .feature-card-qs-dark:hover .qs-icon {
+            transform: scale(1.1); 
         }
         .feature-card-qs-dark .qs-title {
             font-size: 1.2em; 
             color: var(--askesis-text-white); 
             font-family: 'Roboto', sans-serif;
             font-weight: 700;
+            margin-bottom: 0.5rem; 
         }
         .feature-card-qs-dark p {
             color: var(--askesis-light-gray);
             font-size: 0.9em;
         }
 
-        /* Estilos para Metodología y Beneficios Plegables (Dark Theme) */
         .collapsible-section-dark details {
             border-radius: 8px;
             border: 1px solid var(--askesis-border); 
-            margin-bottom: 1.5rem; 
+            background-color: var(--askesis-gray); 
         }
-        .collapsible-section-dark summary {
+        /* MODIFICADO: El font-size del summary de beneficios ahora es más grande ya que ocupa todo el ancho */
+        #beneficios.collapsible-section-dark details summary {
             font-family: 'Roboto', sans-serif;
-            font-size: 2.2em;
+            font-size: 2.2em; /* Restaurado a 2.2em o el tamaño original de section-title */
             font-weight: 900;
-            padding: 1.5rem;
+            padding: 1.5rem; /* Restaurado o ajustado según necesidad */
             text-align: center;
             text-transform: uppercase;
             cursor: pointer;
@@ -375,7 +394,6 @@
             position: relative; 
             transition: background-color 0.2s ease;
             color: var(--askesis-text-white);
-            background-color: var(--askesis-gray);
         }
         .collapsible-section-dark summary::-webkit-details-marker,
         .collapsible-section-dark summary::marker {
@@ -392,46 +410,23 @@
         }
         .collapsible-section-dark .collapsible-content-dark { 
             padding: 2rem 1.5rem;
-            background-color: var(--askesis-gray);
             border-top: 1px solid var(--askesis-border);
         }
-        /* Metodología específica */
-        #metodologia summary { border-bottom: 3px solid var(--askesis-orange); }
-        #metodologia details[open] summary { background-color: #2a2a2a; }
-        .metodologia-step-card-dark {
-            border-left: 4px solid var(--askesis-orange);
-            padding: 1.5rem;
-            background-color: var(--askesis-dark); 
-            color: var(--askesis-light-gray);
-            border-radius: 6px; 
-            margin-bottom: 1rem; 
-        }
-         #metodologia .card-title-dark { 
-            color: var(--askesis-text-white); 
-            font-size: 1.3em; 
-        }
-        .metodologia-step-card-dark .step-number {
-            background-color: var(--askesis-orange);
-            color: var(--askesis-dark);
-            border-radius: 50%;
-            width: 35px; 
-            height: 35px; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem; 
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
-        /* Beneficios específica */
-        #beneficios summary { border-bottom: 3px solid var(--askesis-green); }
+        
+        #beneficios details summary { border-bottom: 3px solid var(--askesis-green); }
         #beneficios details[open] summary { background-color: #2a2a2a; }
+        
         .beneficio-card-dark { 
             text-align: center; 
             padding: 1.5rem; 
             background-color: var(--askesis-dark); 
             border-top: 3px solid var(--askesis-green); 
             border-radius: 6px;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .beneficio-card-dark:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transform: translateY(-3px);
         }
         .beneficio-card-dark .beneficio-icon {
             font-size: 2.5rem; 
@@ -443,13 +438,13 @@
             color: var(--askesis-text-white); 
             font-family: 'Roboto', sans-serif;
             font-weight: 700;
+            margin-bottom: 0.5rem; 
         }
          .beneficio-card-dark p {
             color: var(--askesis-light-gray);
             font-size: 0.9em;
         }
 
-        /* Estilos Refinados para Guías (Dark Theme) */
         .guia-card-dark {
             background-color: var(--askesis-gray);
             border-radius: 0.5rem; 
@@ -464,7 +459,7 @@
         }
         #guias .guia-card-dark:hover { 
              transform: translateY(-6px);
-             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+             box-shadow: 0 8px 20px rgba(0, 128, 55, 0.2); 
         }
         .guia-card-dark .guia-icon {
             font-size: 2.8rem; 
@@ -476,8 +471,14 @@
             font-size: 1.2em; 
             color: var(--askesis-text-white); 
             font-weight: 700;
+            margin-bottom: 0.5rem; 
+        }
+        .guia-card-dark .guia-description-dark {
+            font-size: 0.85rem;
+            color: var(--askesis-light-gray);
             margin-bottom: 1rem;
-            flex-grow: 1;
+            line-height: 1.5;
+            flex-grow: 1; 
         }
         .guia-card-dark .guia-button-dark { 
             display: inline-flex; 
@@ -489,10 +490,13 @@
             font-weight: 600;
             transition: color 0.3s ease;
             margin-top: 1rem;
+            border: 1px solid var(--askesis-green); 
+            border-radius: 0.25rem;
+            padding: 0.5rem 1rem; 
         }
          .guia-card-dark .guia-button-dark:hover {
-            color: #00a04a; 
-            text-decoration: underline;
+            background-color: var(--askesis-green);
+            color: var(--askesis-text-white); 
         }
         .guia-card-dark .guia-button-dark i { 
             margin-left: 0.5rem;
@@ -502,18 +506,20 @@
             transform: translateX(3px);
         }
 
-
         #cta-final .cta-text {
             font-size: 1.15rem; 
+            line-height: 1.8; 
         }
         #cta-final .cta-button-final {
             background-color: var(--askesis-orange);
             color: var(--askesis-dark) !important;
             padding: 0.9rem 2.2rem; 
             font-size: 1rem; 
+            transition: background-color 0.3s ease, transform 0.3s ease; 
         }
         #cta-final .cta-button-final:hover {
              background-color: #d97019;
+             transform: scale(1.03); 
         }
 
         footer {
@@ -523,7 +529,6 @@
             text-align: center;
             border-top: 1px solid var(--askesis-border);
         }
-        /* Eliminamos la regla .footer-logo ya que ahora es una imagen y se controla con clases de Tailwind */
         footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
         footer .footer-links a { color: var(--askesis-light-gray); margin: 0 0.75rem; transition: color 0.3s; font-weight: 500;}
         footer .footer-links a:hover { color: var(--askesis-orange); }
@@ -586,92 +591,93 @@
             background-color: #d97019;
         }
 
-        /* Desktop-first styling for tools-nav-link - default is icon-only and larger */
         .tools-nav-link {
             background-color: var(--askesis-blue);
-            padding: 0.75rem; /* Generous padding for a clear clickable area for icon */
-            border-radius: 50%; /* Make it round */
-            width: 50px; /* Fixed width/height for a prominent icon */
+            padding: 0.75rem; 
+            border-radius: 50%; 
+            width: 50px; 
             height: 50px;
             transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-            flex-shrink: 0; /* Prevents it from being squeezed by other elements */
-            text-decoration: none; /* Remove underline */
+            flex-shrink: 0; 
+            text-decoration: none; 
         }
         .tools-nav-link:hover {
-            background-color: #004b80; /* Darker blue on hover */
-            transform: scale(1.1); /* Slight zoom for "resalte" */
+            background-color: #004b80; 
+            transform: scale(1.1); 
             box-shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
         .tools-nav-link i {
             color: var(--askesis-green);
-            font-size: 1.8rem; /* Prominent icon size for desktop */
+            font-size: 1.8rem; 
         }
-        .tools-nav-link span { /* Text is hidden by default in this context (desktop header) */
+        .tools-nav-link span { 
             display: none;
         }
 
-        /* Mobile specific header styling for tools-nav-link: smaller icon-only */
         @media (max-width: 767px) {
             .tools-nav-link {
-                width: 40px; /* Smaller for mobile header */
+                width: 40px; 
                 height: 40px;
                 padding: 0.5rem;
-                box-shadow: 0 1px 4px rgba(0,0,0,0.2); /* Smaller shadow */
+                box-shadow: 0 1px 4px rgba(0,0,0,0.2); 
             }
             .tools-nav-link i {
-                font-size: 1.3rem; /* Smaller icon size */
+                font-size: 1.3rem; 
+            }
+            /* MODIFICADO: Ajuste de tamaño de fuente para summary de beneficios en móvil */
+            #beneficios.collapsible-section-dark details summary {
+                font-size: 1.8em; /* Coincide con section-title en móvil */
+                padding: 1.2rem; /* Ajustado */
             }
         }
-        /* Mobile menu specific styling for the tools-nav-link inside it */
-        .mobile-menu-link-wrapper { /* Ensure text & icon are correctly spaced in mobile menu */
+        .mobile-menu-link-wrapper { 
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             padding: 0.75rem 0;
-            cursor: pointer; /* To indicate it's clickable */
+            cursor: pointer; 
             transition: background-color 0.3s ease;
         }
         .mobile-menu-link-wrapper:hover {
-            background-color: var(--askesis-gray); /* Hover for the whole wrapper in mobile menu */
+            background-color: var(--askesis-gray); 
         }
         .mobile-menu-link-wrapper .tools-nav-link {
-            background: none; /* No background in mobile menu */
-            color: var(--askesis-text-white); /* Use text color from parent */
-            box-shadow: none; /* No shadow */
-            width: auto; /* Allow width to adjust for text */
+            background: none; 
+            color: var(--askesis-text-white); 
+            box-shadow: none; 
+            width: auto; 
             height: auto;
-            padding: 0; /* No internal padding */
-            border-radius: 0; /* No border radius */
-            justify-content: center; /* Center content (icon + text) */
-            gap: 8px; /* Space between icon and text */
-            text-align: center; /* Text alignment, though flex makes it less relevant */
-            transform: none; /* Remove transform from hover for menu item */
+            padding: 0; 
+            border-radius: 0; 
+            justify-content: center; 
+            gap: 8px; 
+            text-align: center; 
+            transform: none; 
         }
-        .mobile-menu-link-wrapper .tools-nav-link:hover { /* Override hover for the link itself when in mobile menu */
+        .mobile-menu-link-wrapper .tools-nav-link:hover { 
             background: none;
             transform: none;
             box-shadow: none;
         }
         .mobile-menu-link-wrapper .tools-nav-link span {
-            display: inline; /* Make text visible again */
-            font-weight: 600; /* Apply font weight */
-            text-transform: uppercase; /* Match other menu links */
-            font-size: 1rem; /* Match other menu link font size */
-            margin: 0; /* No margin */
-            text-decoration: none; /* No underline */
+            display: inline; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            font-size: 1rem; 
+            margin: 0; 
+            text-decoration: none; 
         }
         .mobile-menu-link-wrapper .tools-nav-link i {
-            color: var(--askesis-orange); /* Override icon color for menu */
-            font-size: 1.5rem; /* Larger icon in mobile menu */
+            color: var(--askesis-orange); 
+            font-size: 1.5rem; 
         }
 
-
-        @media (max-width: 768px) {
+        @media (max-width: 768px) { 
             #hero {
                 padding-top: 80px; 
                 padding-bottom: 3rem;
@@ -697,7 +703,8 @@
              .hero-plan-card-kow:last-child {
                 margin-bottom: 0;
              }
-            .section-title, #metodologia summary, #beneficios summary { font-size: 1.8em; } 
+            .section-title { font-size: 1.8em; } 
+
             .main-header .container { padding-left: 1rem; padding-right: 1rem; }
             .main-header nav.hidden.md\:flex { display: none !important; }
             .programs-grid-kow { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); } 
@@ -716,6 +723,8 @@
              }
              .hero-plan-card-kow {
                 width: 90%; 
+                margin-left: auto; 
+                margin-right: auto; 
              }
         }
 
@@ -726,39 +735,32 @@
 
     <header class="main-header">
         <div class="container mx-auto flex items-center justify-between p-4">
-            <!-- Contenedor izquierdo para la herramienta y el logo/texto Askesis -->
             <div class="flex items-center gap-4">
                 <a href="https://OmniaInBonum.github.io/askesis-links/Herramientas%20Utiles.html" target="_blank" class="tools-nav-link" title="Herramientas Útiles">
                     <i class="fas fa-tools"></i> <span>Herramientas</span>
                 </a>
-                <!-- LOGO CIRCULAR Y TEXTO ASKESIS EN EL HEADER -->
-                <a href="#hero" class="flex items-center gap-2">
-                    <div class="rounded-full overflow-hidden h-10 w-10 bg-askesis-dark flex items-center justify-center border border-askesis-orange">
+                <a href="#hero" class="flex items-center gap-2 group"> <div class="rounded-full overflow-hidden h-10 w-10 bg-askesis-dark flex items-center justify-center border border-askesis-orange group-hover:border-askesis-green transition-colors duration-300">
                         <img src="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" alt="Logo Askesis" class="w-full h-full object-cover">
                     </div>
-                    <span class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">Askesis</span>
+                    <span class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto group-hover:text-askesis-orange transition-colors duration-300">Askesis</span>
                 </a>
             </div>
 
-            <!-- Navegación desktop (existente) -->
             <nav class="hidden md:flex items-center">
                 <a href="#hero" class="nav-link active">Inicio</a>
                 <a href="#programas-especificos" class="nav-link">Programas</a>
                 <a href="#quienes-somos" class="nav-link">Quiénes Somos</a>
-                <a href="#metodologia" class="nav-link">Metodología</a>
                 <a href="#beneficios" class="nav-link">Beneficios</a>
                 <a href="#guias" class="nav-link">Guías Gratis</a>
                 <a href="#cta-final" class="nav-link">Contacto</a>
                 <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20sus%20servicios." target="_blank" class="nav-cta-button ml-4">Únete Ahora</a>
             </nav>
             
-            <!-- Botón de menú móvil (existente) -->
             <button id="mobile-menu-button" class="md:hidden text-askesis-text-white focus:outline-none">
                 <i class="fas fa-bars fa-lg"></i>
             </button>
         </div>
 
-        <!-- Menú móvil (existente) -->
         <div id="mobile-menu" class="hidden md:hidden bg-askesis-dark border-t border-askesis-border">
             <a href="https://OmniaInBonum.github.io/askesis-links/Herramientas%20Utiles.html" target="_blank" class="mobile-menu-link-wrapper block text-askesis-text-white text-center py-3 nav-link-mobile">
                 <span class="tools-nav-link">
@@ -768,7 +770,6 @@
             <a href="#hero" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Inicio</a>
             <a href="#programas-especificos" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Programas</a>
             <a href="#quienes-somos" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Quiénes Somos</a>
-            <a href="#metodologia" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Metodología</a>
             <a href="#beneficios" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Beneficios</a>
             <a href="#guias" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Guías Gratis</a>
             <a href="#cta-final" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Contacto</a>
@@ -808,9 +809,9 @@
 
                     <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20Sesi%C3%B3n%20%C3%9Anica." target="_blank" class="hero-plan-card-kow">
                         <div>
-                            <h3 class="hero-plan-title-kow">Evaluación / Sesión Única   Definición Revisión Objetivos</h3>
-                            <p class="hero-plan-price-kow">$8.000</p>
+                            <h3 class="hero-plan-title-kow">Evaluación / Sesión Única</h3> <p class="hero-plan-price-kow">$8.000</p>
                             <span class="hero-plan-note-kow">CLP / Sesión</span>
+                             <span class="hero-plan-note-kow text-xs">Ideal para definir objetivos y revisión inicial.</span>
                         </div>
                          <div class="hero-plan-action-button-kow mt-auto"><i class="fab fa-whatsapp mr-2"></i>Consultar</div>
                     </a>
@@ -824,7 +825,8 @@
                 <p class="text-center text-lg mb-10 max-w-3xl mx-auto text-askesis-light-gray">Explora nuestros programas especializados, diseñados para objetivos concretos y transformaciones profundas.</p>
                 <div class="programs-grid-kow"> 
                     <div class="program-card-kow">
-                        <img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/dominadas.jpeg" alt="Programa Iniciación Calistenia">
+                        <span class="program-badge" style="background-color: var(--askesis-green); color: var(--askesis-text-white);">¡Nuevo!</span>
+                        <img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/dominadas.jpeg" alt="Persona realizando dominadas para programa de iniciación a calistenia">
                         <div class="program-content-kow">
                             <div>
                                 <h3 class="program-title-kow">Programa Iniciación Calistenia</h3>
@@ -832,12 +834,12 @@
                                 <p class="program-price-kow">Consulta Valor</p>
                             </div>
                             <a href="https://OmniaInBonum.github.io/WEB-Akesis/WEB%20Calistenia%203%20meses%20iniciante.html" target="_blank" class="program-cta-kow">
-                                Más Info
+                                Más Info <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
                     </div>
                      <div class="program-card-kow">
-                        <img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/Sentadilla%20Casa.jpg" alt="Programa Transformación Total">
+                        <img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/Sentadilla%20Casa.jpg" alt="Hombre realizando sentadilla con barra para programa de transformación total">
                         <div class="program-content-kow">
                             <div>
                                 <h3 class="program-title-kow">Programa Transformación Total</h3>
@@ -845,20 +847,20 @@
                                 <p class="program-price-kow">Consulta Valor</p>
                             </div>
                             <a href="https://omniainbonum.github.io/WEB-Akesis/Web%203%20bloques.html" target="_blank" class="program-cta-kow" style="background-color: var(--askesis-green); color:var(--askesis-text-white) !important;">
-                                Más Info
+                                Más Info <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
                     </div>
                     <div class="program-card-kow">
-                         <img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/portada%20askesis.jpeg" alt="Programa GAP Femenino">
+                         <img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/portada%20askesis.jpeg" alt="Mujer entrenando glúteos para programa GAP femenino">
                         <div class="program-content-kow">
                            <div>
                                 <h3 class="program-title-kow">Programa GAP Femenino</h3>
                                 <p class="program-description-kow">Ideal para mujeres buscando fortalecer y definir Glúteos, Abdomen y Piernas. Énfasis en técnica y tonificación.</p>
                                  <p class="program-price-kow">Consulta Valor</p>
                            </div>
-                            <a href="https://omniainbonum.github.io/WEB-Akesis/GAP%20WEB.html" target="_blank" class="program-cta-kow" style="background-color: var(--askesis-blue);">
-                                Más Info
+                            <a href="https://omniainbonum.github.io/WEB-Akesis/GAP%20WEB.html" target="_blank" class="program-cta-kow" style="background-color: var(--askesis-blue); color:var(--askesis-text-white) !important;">
+                                Más Info <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
                     </div>
@@ -870,16 +872,14 @@
             <div class="content-wrapper">
                 <h2 class="section-title"><i class="fas fa-users mr-3"></i>Quiénes Somos</h2>
                 
-                <!-- Circular Logo for "Quiénes Somos" -->
-                <div class="flex justify-center mb-6"> <!-- Reducido mb-10 a mb-6 -->
+                <div class="flex justify-center mb-6"> 
                     <div class="rounded-full overflow-hidden h-32 w-32 md:h-40 md:w-40 bg-askesis-dark flex items-center justify-center border-2 border-askesis-orange shadow-lg">
                         <img src="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" alt="Logo Askesis Circular" class="w-full h-full object-cover">
                     </div>
                 </div>
 
-                <!-- Nuevo subtítulo aquí -->
                 <p class="text-center italic text-askesis-light-gray text-base max-w-2xl mx-auto mb-10">
-                    "'Askesis'. espiral ascendente que se eleva sutil, sugiriendo un viaje continuo de automejora."
+                    "'Askesis': un viaje continuo de automejora y disciplina, elevando tu potencial físico y mental."
                 </p>
 
 
@@ -912,42 +912,6 @@
             </div>
         </section>
         
-        <section id="metodologia" class="page-section scroll-mt-header collapsible-section-dark">
-            <div class="content-wrapper">
-                <details>
-                    <summary>
-                        Nuestra Metodología Probada
-                        <span class="summary-icon"><i class="fas fa-chevron-down"></i></span>
-                    </summary>
-                    <div class="collapsible-content-dark metodologia-content">
-                        <p class="text-center text-lg mb-10 max-w-3xl mx-auto">Un proceso claro y estructurado, diseñado para llevarte desde tu punto actual hasta tus metas más ambiciosas.</p>
-                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            <div class="metodologia-step-card-dark">
-                                <div class="step-number">1</div>
-                                <h3 class="card-title-dark">Diagnóstico Detallado</h3>
-                                <p class="text-sm">Análisis exhaustivo de tus metas, historial, capacidades y contexto para crear la base de tu plan.</p>
-                            </div>
-                            <div class="metodologia-step-card-dark">
-                                <div class="step-number">2</div>
-                                <h3 class="card-title-dark">Planificación Estratégica</h3>
-                                <p class="text-sm">Diseño de un programa 100% personalizado, con ejercicios, progresiones y variables ajustadas a ti.</p>
-                            </div>
-                            <div class="metodologia-step-card-dark">
-                                <div class="step-number">3</div>
-                                <h3 class="card-title-dark">Implementación y Soporte</h3>
-                                <p class="text-sm">Acompañamiento constante, feedback técnico y ajustes dinámicos para asegurar tu avance.</p>
-                            </div>
-                            <div class="metodologia-step-card-dark">
-                                <div class="step-number">4</div>
-                                <h3 class="card-title-dark">Evolución Continua</h3>
-                                <p class="text-sm">Consolidamos tus logros y, si lo deseas, trazamos nuevas metas para seguir superando tus límites.</p>
-                            </div>
-                        </div>
-                    </div>
-                </details>
-            </div>
-        </section>
-
         <section id="beneficios" class="page-section scroll-mt-header collapsible-section-dark">
             <div class="content-wrapper">
                  <details>
@@ -957,7 +921,7 @@
                     </summary>
                     <div class="collapsible-content-dark">
                         <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Con Askesis, no solo entrenas: inviertes en una mejora integral de tu calidad de vida y rendimiento.</p>
-                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"> 
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"> 
                             <div class="beneficio-card-dark"> 
                                 <i class="fas fa-map-signs beneficio-icon"></i>
                                 <h3 class="beneficio-title-dark">Claridad y Dirección</h3>
@@ -997,12 +961,13 @@
         <section id="guias" class="page-section scroll-mt-header">
             <div class="content-wrapper">
                 <h2 class="section-title"><i class="fas fa-book-open mr-3"></i>Guías Gratuitas</h2>
-                <p class="text-center text-lg mb-12 max-w-3xl mx-auto text-askesis-light-gray">Accede a material exclusivo diseñado para complementar tu entrenamiento y acelerar tus resultados.</p>
+                <p class="text-center text-lg mb-12 max-w-3xl mx-auto text-askesis-light-gray">Accede a material exclusivo diseñado para complementar tu entrenamiento y acelerar tus resultados. ¡Conocimiento es poder!</p>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"> 
                     <div class="guia-card-dark">
                         <div>
                             <i class="fas fa-key guia-icon"></i>
                             <h3 class="guia-title-dark">3 Pilares Clave para Tu Progreso</h3>
+                            <p class="guia-description-dark">Descubre los fundamentos esenciales que impulsarán tus resultados en cualquier disciplina.</p>
                         </div>
                         <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Gratuita%20-%203%20Pilares%20Clave%20para%20Tu%20Progreso.html" target="_blank" class="guia-button-dark">
                             Ver Guía <i class="fas fa-arrow-right"></i>
@@ -1012,6 +977,7 @@
                         <div>
                             <i class="fas fa-running guia-icon"></i>
                             <h3 class="guia-title-dark">Guía Entrenamiento Excéntrico</h3>
+                             <p class="guia-description-dark">Aprende a utilizar esta poderosa técnica para ganar fuerza y superar estancamientos.</p>
                         </div>
                         <a href="https://omniainbonum.github.io/GuiasGratis/Guia%20Entrenamiento%20Excentrico.html" target="_blank" class="guia-button-dark">
                             Ver Guía <i class="fas fa-arrow-right"></i>
@@ -1021,6 +987,7 @@
                         <div>
                             <i class="fas fa-fire-alt guia-icon"></i>
                             <h3 class="guia-title-dark">Guía Gratuita - Calentamiento</h3>
+                             <p class="guia-description-dark">La preparación es clave. Optimiza tus calentamientos para rendir más y prevenir lesiones.</p>
                         </div>
                         <a href="https://omniainbonum.github.io/GuiasGratis/Guia%20Gratuita%20-%20Calentamiento.html" target="_blank" class="guia-button-dark">
                             Ver Guía <i class="fas fa-arrow-right"></i>
@@ -1032,7 +999,7 @@
 
         <section id="cta-final" class="page-section scroll-mt-header">
             <div class="content-wrapper text-center">
-                <h2 class="section-title-light"><i class="fas fa-paper-plane mr-3"></i>¿Listo/a Para Empezar Tu Transformación?</h2>
+                <h2 class="section-title"><i class="fas fa-paper-plane mr-3"></i>¿Listo/a Para Empezar Tu Transformación?</h2>
                 <p class="cta-text max-w-2xl mx-auto">
                     No esperes más para invertir en ti. Da el primer paso hacia la versión más fuerte, saludable y capaz de ti mismo/a.
                     Contáctame hoy y comencemos a diseñar tu camino al éxito.
@@ -1051,16 +1018,14 @@
 
     <footer>
         <div class="content-wrapper">
-            <!-- LOGO ASKESIS CIRCULAR EN EL FOOTER (con tamaño aumentado) -->
             <div class="rounded-full overflow-hidden h-28 w-28 mx-auto mb-2 bg-askesis-dark flex items-center justify-center border-2 border-askesis-orange shadow-lg">
-                <img src="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" alt="Logo Askesis" class="w-full h-full object-cover">
+                <img src="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" alt="Logo Askesis en el pie de página" class="w-full h-full object-cover">
             </div>
             <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
             <div class="mb-8 footer-links">
                 <a href="#hero">Inicio</a> |
                 <a href="#programas-especificos">Programas</a> |
                 <a href="#quienes-somos">Quiénes Somos</a> |
-                <a href="#metodologia">Metodología</a> |
                 <a href="#beneficios">Beneficios</a> |
                 <a href="#guias">Guías</a> |
                 <a href="#cta-final">Contacto</a>
@@ -1073,7 +1038,7 @@
                  <a href="mailto:luistdu111@gmail.com?subject=Consulta%20desde%20la%20web%20Askesis" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
                  <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20tengo%20una%20consulta." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
                  <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
-                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+                 <a href="https://www.youtube.com/@tuCanalAskesis" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
             </div>
             <p class="copyright-footer">© <span id="currentYearFooter"></span> Askesis. Todos los derechos reservados.</p>
         </div>
@@ -1107,8 +1072,8 @@
                 });
             }
 
-            updateHeaderCalculations();
-            window.addEventListener('resize', updateHeaderCalculations);
+            updateHeaderCalculations(); 
+            window.addEventListener('resize', updateHeaderCalculations); 
 
 
             window.addEventListener('scroll', () => {
@@ -1131,18 +1096,17 @@
                 });
             }
             
-            const allNavLinks = document.querySelectorAll('header nav a.nav-link, #mobile-menu a.nav-link-mobile, a.guias-float, .hero-plan-card-kow, .footer-links a, .tools-nav-link, .mobile-menu-link-wrapper'); 
+            const allNavLinks = document.querySelectorAll('header nav a.nav-link, #mobile-menu a.nav-link-mobile, a.guias-float, .hero-plan-card-kow, .footer-links a, .tools-nav-link, .mobile-menu-link-wrapper, .program-cta-kow'); 
 
             allNavLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
-                    let actualLink = link;
+                    let actualLinkElement = link;
                     if (link.classList.contains('mobile-menu-link-wrapper')) {
-                        actualLink = link.querySelector('.tools-nav-link');
+                        actualLinkElement = link.querySelector('.tools-nav-link');
                     }
                     
-                    const targetId = actualLink.getAttribute('href');
+                    const targetId = actualLinkElement.getAttribute('href');
                     
-                    // Comprobar si es un enlace interno de la misma página (inicia con #)
                     if (targetId && targetId.startsWith('#') && targetId.length > 1) { 
                         e.preventDefault(); 
                         const targetElement = document.querySelector(targetId);
@@ -1156,26 +1120,28 @@
                                 }
                             }
                             
-                            const headerOffset = headerHeight; 
+                            if (header) headerHeight = header.offsetHeight; 
+                            
                             const elementPosition = targetElement.getBoundingClientRect().top;
-                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
 
                             window.scrollTo({
                                 top: offsetPosition,
                                 behavior: "smooth"
                             });
                         }
-                    } else if (mobileMenu && !mobileMenu.classList.contains('hidden')) { 
-                        mobileMenu.classList.add('hidden');
-                        if (mobileMenuIcon) {
-                            mobileMenuIcon.classList.remove('fa-times');
-                            mobileMenuIcon.classList.add('fa-bars');
+                    } else if (targetId && !targetId.startsWith('#')) { 
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) { 
+                            mobileMenu.classList.add('hidden');
+                            if (mobileMenuIcon) {
+                                mobileMenuIcon.classList.remove('fa-times');
+                                mobileMenuIcon.classList.add('fa-bars');
+                            }
                         }
                     }
                 });
             });
             
-            // Funcionalidad para secciones plegables
             const collapsibleSections = document.querySelectorAll('.collapsible-section-dark details'); 
             collapsibleSections.forEach(detailsElement => {
                 const summaryIcon = detailsElement.querySelector('summary .summary-icon i');
@@ -1199,22 +1165,25 @@
 
 
             function setActiveLink() {
+                if (header) headerHeight = header.offsetHeight;
+
                 let currentActiveId = sections.length > 0 ? sections[0].getAttribute('id') : ''; 
 
                 for (let i = sections.length - 1; i >= 0; i--) {
                     const section = sections[i];
-                    const sectionTop = section.offsetTop - headerHeight;
+                    const sectionTop = section.offsetTop; 
                     
-                    if (window.scrollY >= sectionTop - (window.innerHeight * 0.3) ) { 
+                    if (window.scrollY >= sectionTop - headerHeight - (window.innerHeight * 0.3) ) { 
                         currentActiveId = section.getAttribute('id');
                         break; 
                     }
                 }
                 
                 desktopNavLinks.forEach(link => {
-                    link.classList.remove('active', 'text-askesis-orange');
-                    if (link.getAttribute('href') === `#${currentActiveId}`) {
-                        link.classList.add('active', 'text-askesis-orange');
+                    link.classList.remove('active'); 
+                    let linkHref = link.getAttribute('href');
+                    if (linkHref === `#${currentActiveId}`) {
+                        link.classList.add('active');
                     }
                 });
                 
@@ -1224,7 +1193,8 @@
 
                     if (!isToolsLink) {
                         link.classList.remove('text-askesis-orange', 'font-bold'); 
-                        if (link.getAttribute('href') === `#${currentActiveId}`) {
+                        let linkHref = link.getAttribute('href');
+                        if (linkHref === `#${currentActiveId}`) {
                             link.classList.add('text-askesis-orange', 'font-bold');
                         }
                     } else { 
@@ -1234,9 +1204,12 @@
             }
             
             if (sections.length > 0) { 
-                setActiveLink();
+                setActiveLink(); 
                 window.addEventListener('scroll', setActiveLink);
-                window.addEventListener('resize', setActiveLink); 
+                window.addEventListener('resize', () => { 
+                    updateHeaderCalculations(); 
+                    setActiveLink();
+                }); 
             }
         });
     </script>
