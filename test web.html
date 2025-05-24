@@ -244,7 +244,7 @@
             transition: background-color 0.3s ease, color 0.3s ease;
             width: 100%;
         }
-        .hero-plan-card-kow:hover .hero-plan-action-button-kow {
+        .hero-plan-action-button-kow:hover {
             background-color: #d97019;
         }
         .hero-plan-card-kow.recommended .hero-plan-action-button-kow {
@@ -523,14 +523,7 @@
             text-align: center;
             border-top: 1px solid var(--askesis-border);
         }
-        footer .footer-logo {
-            font-family: 'Roboto', sans-serif;
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--askesis-text-white);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-        }
+        /* Eliminamos la regla .footer-logo ya que ahora es una imagen y se controla con clases de Tailwind */
         footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
         footer .footer-links a { color: var(--askesis-light-gray); margin: 0 0.75rem; transition: color 0.3s; font-weight: 500;}
         footer .footer-links a:hover { color: var(--askesis-orange); }
@@ -592,66 +585,87 @@
         .guias-float:hover {
             background-color: #d97019;
         }
-        .tools-nav-link { /* Style for the tools button in main site header */
-            background-color: var(--askesis-blue); /* A secondary brand color */
-            color: var(--askesis-text-white);
-            padding: 0.5rem 0.8rem; /* Slightly more compact for the header */
-            border-radius: 0.375rem; /* Rounded corners */
-            font-weight: 600; 
-            font-size: 0.8rem; /* Smaller text size */
-            transition: background-color 0.3s ease, color 0.3s ease;
-            text-transform: uppercase;
-            text-decoration: none;
+
+        /* Desktop-first styling for tools-nav-link - default is icon-only and larger */
+        .tools-nav-link {
+            background-color: var(--askesis-blue);
+            padding: 0.75rem; /* Generous padding for a clear clickable area for icon */
+            border-radius: 50%; /* Make it round */
+            width: 50px; /* Fixed width/height for a prominent icon */
+            height: 50px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            flex-shrink: 0; /* Prevents it from being squeezed by other elements */
         }
         .tools-nav-link:hover {
             background-color: #004b80; /* Darker blue on hover */
-            color: var(--askesis-text-white);
+            transform: scale(1.1); /* Slight zoom for "resalte" */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
         .tools-nav-link i {
-            color: var(--askesis-green); /* Accent icon color */
-            font-size: 1.1rem; /* Slightly larger icon */
+            color: var(--askesis-green);
+            font-size: 1.8rem; /* Prominent icon size for desktop */
         }
-        /* Mobile specific style for tools-nav-link when inside the mobile menu */
+        .tools-nav-link span { /* Text is hidden by default in this context (desktop header) */
+            display: none;
+        }
+
+        /* Mobile specific header styling for tools-nav-link: smaller icon-only */
         @media (max-width: 767px) {
-            .tools-nav-link span { /* Hide text on small screens by default header */
-                display: none;
+            .tools-nav-link {
+                width: 40px; /* Smaller for mobile header */
+                height: 40px;
+                padding: 0.5rem;
+                box-shadow: 0 1px 4px rgba(0,0,0,0.2); /* Smaller shadow */
             }
-            .tools-nav-link { /* Make it an icon-only button on small screens */
-                padding: 0.5rem; /* Compact button */
-                border-radius: 50%; /* Make it round */
-                width: 40px; /* Fixed size */
-                height: 40px; /* Fixed size */
-                display: flex;
-                align-items: center;
-                justify-content: center;
+            .tools-nav-link i {
+                font-size: 1.3rem; /* Smaller icon size */
             }
-            .mobile-menu-link-wrapper { /* To correctly position tools link in mobile menu */
-                display: flex;
-                align-items: center;
-                justify-content: center; /* Center it */
-                gap: 8px; /* Space between icon and text */
-                padding: 0.75rem 0; /* Vertical padding similar to other mobile links */
-            }
-            .mobile-menu-link-wrapper .tools-nav-link {
-                background: none; /* Remove background on button itself in mobile menu */
-                color: var(--askesis-text-white); /* White text in menu */
-                box-shadow: none;
-                width: auto; /* Revert width to auto */
-                height: auto;
-                padding: 0;
-                border-radius: 0;
-            }
-            .mobile-menu-link-wrapper .tools-nav-link span {
-                 display: inline; /* Show text again in mobile menu context */
-            }
-            .mobile-menu-link-wrapper .tools-nav-link i {
-                color: var(--askesis-orange); /* Orange icon in mobile menu */
-                font-size: 1.2rem; /* Larger icon in mobile menu */
-            }
+        }
+        /* Mobile menu specific styling for the tools-nav-link inside it */
+        .mobile-menu-link-wrapper { /* Ensure text & icon are correctly spaced in mobile menu */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0.75rem 0;
+            cursor: pointer; /* To indicate it's clickable */
+            transition: background-color 0.3s ease;
+        }
+        .mobile-menu-link-wrapper:hover {
+            background-color: var(--askesis-gray); /* Hover for the whole wrapper in mobile menu */
+        }
+        .mobile-menu-link-wrapper .tools-nav-link {
+            background: none; /* No background in mobile menu */
+            color: var(--askesis-text-white); /* Use text color from parent */
+            box-shadow: none; /* No shadow */
+            width: auto; /* Allow width to adjust for text */
+            height: auto;
+            padding: 0; /* No internal padding */
+            border-radius: 0; /* No border radius */
+            justify-content: center; /* Center content (icon + text) */
+            gap: 8px; /* Space between icon and text */
+            text-align: center; /* Text alignment, though flex makes it less relevant */
+            transform: none; /* Remove transform from hover for menu item */
+        }
+        .mobile-menu-link-wrapper .tools-nav-link:hover { /* Override hover for the link itself when in mobile menu */
+            background: none;
+            transform: none;
+            box-shadow: none;
+        }
+        .mobile-menu-link-wrapper .tools-nav-link span {
+            display: inline; /* Make text visible again */
+            font-weight: 600; /* Apply font weight */
+            text-transform: uppercase; /* Match other menu links */
+            font-size: 1rem; /* Match other menu link font size */
+            margin: 0; /* No margin */
+        }
+        .mobile-menu-link-wrapper .tools-nav-link i {
+            color: var(--askesis-orange); /* Override icon color for menu */
+            font-size: 1.5rem; /* Larger icon in mobile menu */
         }
 
 
@@ -710,12 +724,16 @@
 
     <header class="main-header">
         <div class="container mx-auto flex items-center justify-between p-4">
-            <!-- Contenedor izquierdo para la herramienta y el logo Askesis -->
+            <!-- Contenedor izquierdo para la herramienta y el logo/texto Askesis -->
             <div class="flex items-center gap-4">
                 <a href="https://OmniaInBonum.github.io/askesis-links/Herramientas%20Utiles.html" target="_blank" class="tools-nav-link">
                     <i class="fas fa-tools"></i> <span>Herramientas</span>
                 </a>
-                <a href="#hero" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">Askesis</a>
+                <!-- LOGO Y TEXTO ASKESIS EN EL HEADER -->
+                <a href="#hero" class="flex items-center gap-2">
+                    <img src="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" alt="Logo Askesis" class="h-12 w-auto">
+                    <span class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">Askesis</span>
+                </a>
             </div>
 
             <!-- Navegación desktop (existente) -->
@@ -738,7 +756,11 @@
 
         <!-- Menú móvil (existente) -->
         <div id="mobile-menu" class="hidden md:hidden bg-askesis-dark border-t border-askesis-border">
-            <a href="https://OmniaInBonum.github.io/askesis-links/Herramientas%20Utiles.html" target="_blank" class="mobile-menu-link-wrapper block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile"><i class="fas fa-tools mr-2 text-askesis-orange"></i><span>Herramientas</span></a>
+            <a href="https://OmniaInBonum.github.io/askesis-links/Herramientas%20Utiles.html" target="_blank" class="mobile-menu-link-wrapper block text-askesis-text-white text-center py-3 nav-link-mobile">
+                <span class="tools-nav-link">
+                    <i class="fas fa-tools mr-2"></i><span>Herramientas</span>
+                </span>
+            </a>
             <a href="#hero" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Inicio</a>
             <a href="#programas-especificos" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Programas</a>
             <a href="#quienes-somos" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Quiénes Somos</a>
@@ -1011,7 +1033,8 @@
 
     <footer>
         <div class="content-wrapper">
-            <div class="footer-logo">Askesis</div>
+            <!-- LOGO ASKESIS EN EL FOOTER (con tamaño aumentado) -->
+            <img src="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" alt="Logo Askesis" class="h-20 w-auto mx-auto mb-2">
             <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
             <div class="mb-8 footer-links">
                 <a href="#hero">Inicio</a> |
@@ -1088,11 +1111,18 @@
                 });
             }
             
-            const allNavLinks = document.querySelectorAll('header nav a.nav-link, #mobile-menu a.nav-link-mobile, a.guias-float, .hero-plan-card-kow, .footer-links a, .tools-nav-link'); // Incluir el nuevo enlace tools-nav-link
+            const allNavLinks = document.querySelectorAll('header nav a.nav-link, #mobile-menu a.nav-link-mobile, a.guias-float, .hero-plan-card-kow, .footer-links a, .tools-nav-link, .mobile-menu-link-wrapper'); // Incluir el nuevo enlace tools-nav-link y su wrapper
 
             allNavLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
-                    const targetId = link.getAttribute('href');
+                    // Check if it's the mobile-menu-link-wrapper (which contains the tools-nav-link)
+                    // If so, get the actual href from its child 'a.tools-nav-link'
+                    let actualLink = link;
+                    if (link.classList.contains('mobile-menu-link-wrapper')) {
+                        actualLink = link.querySelector('.tools-nav-link');
+                    }
+                    
+                    const targetId = actualLink.getAttribute('href');
                     
                     // Comprobar si es un enlace interno de la misma página (inicia con #)
                     if (targetId && targetId.startsWith('#') && targetId.length > 1) { 
@@ -1118,15 +1148,16 @@
                                 behavior: "smooth"
                             });
                         }
-                    } else if (link.classList.contains('nav-link-mobile') && mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                        // Si es un enlace móvil (externo o de otro tipo) y el menú está abierto, ciérralo
+                    } else if (mobileMenu && !mobileMenu.classList.contains('hidden')) { // This condition is important for external links within the mobile menu
+                        // If it's an external link or one not handled by smooth scroll,
+                        // and the mobile menu is open, close the mobile menu.
                         mobileMenu.classList.add('hidden');
                         if (mobileMenuIcon) {
                             mobileMenuIcon.classList.remove('fa-times');
                             mobileMenuIcon.classList.add('fa-bars');
                         }
                     }
-                    // Para enlaces externos (como el de Herramientas, WhatsApp, etc.), se deja que el comportamiento predeterminado suceda
+                    // For external links (like WhatsApp, Herramientas outside mobile menu), default behavior (navigation) is allowed.
                 });
             });
             
@@ -1172,14 +1203,19 @@
                         link.classList.add('active', 'text-askesis-orange');
                     }
                 });
-                // Exclude the 'Herramientas' link from the mobile menu active state,
-                // as it's an external link and doesn't correspond to a section on THIS page.
+                // Exclude the 'Herramientas' link (and its wrapper in mobile menu) from the active state
                 mobileNavLinksForActiveState.forEach(link => {
-                    if (!link.classList.contains('tools-nav-link')) { // Excluye el enlace de herramientas del resaltado activo
+                    // Check if it's the direct link or the wrapper containing it
+                    const isToolsLink = link.classList.contains('mobile-menu-link-wrapper') || 
+                                        (link.classList.contains('nav-link-mobile') && link.querySelector('.tools-nav-link'));
+
+                    if (!isToolsLink) {
                         link.classList.remove('text-askesis-orange', 'font-bold'); 
                         if (link.getAttribute('href') === `#${currentActiveId}`) {
                             link.classList.add('text-askesis-orange', 'font-bold');
                         }
+                    } else { // Specifically handle tools-nav-link (if it had its own active state)
+                         link.classList.remove('text-askesis-orange', 'font-bold'); 
                     }
                 });
             }
