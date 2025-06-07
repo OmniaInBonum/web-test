@@ -122,7 +122,7 @@
             padding-top: 100px; 
             padding-bottom: 4rem;
         }
-        /* MODIFICADO: Se quita #metodologia-beneficios y se usa #beneficios directamente si es necesario */
+        
         #quienes-somos, #beneficios, #guias, #programas-especificos { 
             background-color: var(--askesis-dark); 
         }
@@ -208,18 +208,9 @@
             font-weight: 700;
             margin-bottom: 0.75rem;
         }
-        .hero-plan-price-kow {
-            font-family: 'Roboto', sans-serif;
-            font-size: 2em; 
-            font-weight: 900;
-            color: var(--askesis-orange);
-            margin-bottom: 0.25rem;
-        }
-        .hero-plan-card-kow.recommended .hero-plan-price-kow {
-            color: var(--askesis-green);
-        }
+        
         .hero-plan-note-kow {
-            font-size: 0.8em; 
+            font-size: 0.9em; 
             display: block;
             color: var(--askesis-light-gray);
             margin-bottom: 1rem;
@@ -316,13 +307,6 @@
             line-height: 1.5;
             flex-grow: 1;
         }
-        .program-card-kow .program-price-kow {
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.1em;
-            font-weight: 600;
-            color: var(--askesis-orange);
-            margin-bottom: 1rem;
-        }
         .program-card-kow .program-cta-kow {
             display: block;
             background-color: var(--askesis-orange);
@@ -335,6 +319,7 @@
             font-size: 0.85em;
             text-transform: uppercase;
             transition: background-color 0.3s ease;
+            margin-top: 1rem;
         }
         .program-card-kow .program-cta-kow:hover {
             background-color: #d97019;
@@ -378,12 +363,12 @@
             border: 1px solid var(--askesis-border); 
             background-color: var(--askesis-gray); 
         }
-        /* MODIFICADO: El font-size del summary de beneficios ahora es más grande ya que ocupa todo el ancho */
+        
         #beneficios.collapsible-section-dark details summary {
             font-family: 'Roboto', sans-serif;
-            font-size: 2.2em; /* Restaurado a 2.2em o el tamaño original de section-title */
+            font-size: 2.2em; 
             font-weight: 900;
-            padding: 1.5rem; /* Restaurado o ajustado según necesidad */
+            padding: 1.5rem; 
             text-align: center;
             text-transform: uppercase;
             cursor: pointer;
@@ -628,10 +613,9 @@
             .tools-nav-link i {
                 font-size: 1.3rem; 
             }
-            /* MODIFICADO: Ajuste de tamaño de fuente para summary de beneficios en móvil */
             #beneficios.collapsible-section-dark details summary {
-                font-size: 1.8em; /* Coincide con section-title en móvil */
-                padding: 1.2rem; /* Ajustado */
+                font-size: 1.8em; 
+                padding: 1.2rem; 
             }
         }
         .mobile-menu-link-wrapper { 
@@ -787,11 +771,10 @@
                 </p>
                 
                 <div class="hero-plans-container-kow">
-                    <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20el%20Plan%20Mensual." target="_blank" class="hero-plan-card-kow">
+                    <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20la%20Asesoria%20Mensual." target="_blank" class="hero-plan-card-kow">
                         <div>
                             <h3 class="hero-plan-title-kow">Asesoria Mensual Gym/Calistenia</h3>
-                            <p class="hero-plan-price-kow">$50.000</p>
-                            <span class="hero-plan-note-kow">CLP / Mes</span>
+                            <p class="hero-plan-note-kow text-xs min-h-[4.5em] flex items-center justify-center">Planificación y seguimiento continuo para tus metas en gimnasio o con peso corporal.</p>
                         </div>
                         <div class="hero-plan-action-button-kow mt-auto"><i class="fab fa-whatsapp mr-2"></i>Consultar</div>
                     </a>
@@ -800,18 +783,15 @@
                         <div>
                             <span class="recommended-tag-hero-kow">Más Popular</span>
                             <h3 class="hero-plan-title-kow">Plan Trimestral</h3>
-                            <p class="hero-plan-price-kow">$120.000</p>
-                            <span class="hero-plan-note-kow">CLP / Trimestre</span>
-                            <span class="hero-plan-note-kow text-askesis-green font-semibold">(Ahorra $30.000)</span>
+                            <p class="hero-plan-note-kow text-xs min-h-[4.5em] flex items-center justify-center">Compromiso a largo plazo para resultados sólidos y sostenibles. Incluye seguimiento completo.</p>
                         </div>
                         <div class="hero-plan-action-button-kow mt-auto"><i class="fab fa-whatsapp mr-2"></i>Consultar</div>
                     </a>
 
-                    <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20Sesi%C3%B3n%20%C3%9Anica." target="_blank" class="hero-plan-card-kow">
+                    <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20Asesor%C3%ADa%201:1." target="_blank" class="hero-plan-card-kow">
                         <div>
-                            <h3 class="hero-plan-title-kow">Evaluación / Sesión Única</h3> <p class="hero-plan-price-kow">$8.000</p>
-                            <span class="hero-plan-note-kow">CLP / Sesión</span>
-                             <span class="hero-plan-note-kow text-xs">Ideal para definir objetivos y revisión inicial.</span>
+                            <h3 class="hero-plan-title-kow">Asesoría 1:1</h3>
+                            <p class="hero-plan-note-kow text-xs min-h-[4.5em] flex items-center justify-center">Sesión dedicada para resolver dudas, evaluar técnica o definir un plan de acción inicial.</p>
                         </div>
                          <div class="hero-plan-action-button-kow mt-auto"><i class="fab fa-whatsapp mr-2"></i>Consultar</div>
                     </a>
@@ -831,7 +811,6 @@
                             <div>
                                 <h3 class="program-title-kow">Programa Iniciación Calistenia</h3>
                                 <p class="program-description-kow">Principiantes (hombres/mujeres) queriendo dominar su peso corporal (3 Meses). Logra tus primeras dominadas, 20 flexiones y un L-Sit sólido.</p>
-                                <p class="program-price-kow">Consulta Valor</p>
                             </div>
                             <a href="https://OmniaInBonum.github.io/WEB-Akesis/WEB%20Calistenia%203%20meses%20iniciante.html" target="_blank" class="program-cta-kow">
                                 Más Info <i class="fas fa-arrow-right ml-2"></i>
@@ -844,7 +823,6 @@
                             <div>
                                 <h3 class="program-title-kow">Programa Transformación Total</h3>
                                 <p class="program-description-kow">Ideal para hombres buscando maximizar músculo, fuerza Y potencia (12-16 Semanas). Bloques de Hipertrofia, Fuerza Máxima y Potencia.</p>
-                                <p class="program-price-kow">Consulta Valor</p>
                             </div>
                             <a href="https://omniainbonum.github.io/WEB-Akesis/Web%203%20bloques.html" target="_blank" class="program-cta-kow" style="background-color: var(--askesis-green); color:var(--askesis-text-white) !important;">
                                 Más Info <i class="fas fa-arrow-right ml-2"></i>
@@ -857,7 +835,6 @@
                            <div>
                                 <h3 class="program-title-kow">Programa GAP Femenino</h3>
                                 <p class="program-description-kow">Ideal para mujeres buscando fortalecer y definir Glúteos, Abdomen y Piernas. Énfasis en técnica y tonificación.</p>
-                                 <p class="program-price-kow">Consulta Valor</p>
                            </div>
                             <a href="https://omniainbonum.github.io/WEB-Akesis/GAP%20WEB.html" target="_blank" class="program-cta-kow" style="background-color: var(--askesis-blue); color:var(--askesis-text-white) !important;">
                                 Más Info <i class="fas fa-arrow-right ml-2"></i>
