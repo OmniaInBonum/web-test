@@ -109,20 +109,52 @@
         }
         
         #hero {
-            background: linear-gradient(rgba(18, 18, 18, 0.75), rgba(18, 18, 18, 0.85)), url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/port.jpeg') no-repeat center center;
-            background-size: cover;
-            background-attachment: fixed; 
+            position: relative;
+            overflow: hidden;
             color: var(--askesis-text-white);
-            min-height: 100vh; 
+            min-height: 100vh;
             display: flex;
-            flex-direction: column; 
             align-items: center;
             justify-content: center;
-            text-align: center;
-            padding-top: 100px; 
-            padding-bottom: 4rem;
+            padding: 0;
         }
-        
+
+        .hero-video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .hero-video-background iframe {
+            width: 100vw;
+            height: 56.25vw; /* 16:9 aspect ratio */
+            min-height: 100vh;
+            min-width: 177.78vh; /* 16:9 aspect ratio for portrait view */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        .hero-content-container {
+            position: relative;
+            z-index: 2;
+            background-color: rgba(18, 18, 18, 0.75); /* Overlay for readability */
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 1.5rem 4rem;
+            text-align: center;
+        }
+
         #quienes-somos, #beneficios, #guias, #programas-especificos { 
             background-color: var(--askesis-dark); 
         }
@@ -662,11 +694,6 @@
         }
 
         @media (max-width: 768px) { 
-            #hero {
-                padding-top: 80px; 
-                padding-bottom: 3rem;
-                min-height: auto; 
-            }
             #hero .hero-title {
                 font-size: 2.2rem;    
                 margin-bottom: 0.75rem; 
@@ -763,38 +790,43 @@
 
     <main>
         <section id="hero" class="page-section scroll-mt-header">
-            <div class="content-wrapper px-4 flex flex-col items-center"> 
-                <h1 class="hero-title">Transforma Tu Físico. <span class="text-askesis-orange">Alcanza Tus Metas.</span></h1>
-                <p class="hero-subtitle">
-                    En Askesis, fusionamos la ciencia del ejercicio con un enfoque 100% personalizado para guiarte.
-                    Supera pruebas físicas, potencia tu rendimiento deportivo o construye un estilo de vida más fuerte y saludable.
-                </p>
-                
-                <div class="hero-plans-container-kow">
-                    <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20la%20Asesoria%20Mensual." target="_blank" class="hero-plan-card-kow">
-                        <div>
-                            <h3 class="hero-plan-title-kow">Asesoria Mensual Gym/Calistenia</h3>
-                            <p class="hero-plan-note-kow text-xs min-h-[4.5em] flex items-center justify-center">Planificación y seguimiento continuo para tus metas en gimnasio o con peso corporal.</p>
-                        </div>
-                        <div class="hero-plan-action-button-kow mt-auto"><i class="fab fa-whatsapp mr-2"></i>Consultar</div>
-                    </a>
-
-                    <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20el%20Plan%20Trimestral." target="_blank" class="hero-plan-card-kow recommended">
-                        <div>
-                            <span class="recommended-tag-hero-kow">Más Popular</span>
-                            <h3 class="hero-plan-title-kow">Plan Trimestral</h3>
-                            <p class="hero-plan-note-kow text-xs min-h-[4.5em] flex items-center justify-center">Compromiso a largo plazo para resultados sólidos y sostenibles. Incluye seguimiento completo.</p>
-                        </div>
-                        <div class="hero-plan-action-button-kow mt-auto"><i class="fab fa-whatsapp mr-2"></i>Consultar</div>
-                    </a>
-
-                    <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20Asesor%C3%ADa%201:1." target="_blank" class="hero-plan-card-kow">
-                        <div>
-                            <h3 class="hero-plan-title-kow">Asesoría 1:1</h3>
-                            <p class="hero-plan-note-kow text-xs min-h-[4.5em] flex items-center justify-center">Sesión dedicada para resolver dudas, evaluar técnica o definir un plan de acción inicial.</p>
-                        </div>
-                         <div class="hero-plan-action-button-kow mt-auto"><i class="fab fa-whatsapp mr-2"></i>Consultar</div>
-                    </a>
+            <div class="hero-video-background">
+                <iframe src="https://www.youtube.com/embed/LMu7rJqf5JE?autoplay=1&mute=1&loop=1&playlist=LMu7rJqf5JE&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <div class="hero-content-container">
+                <div class="content-wrapper">
+                    <h1 class="hero-title">Transforma Tu Físico. <span class="text-askesis-orange">Alcanza Tus Metas.</span></h1>
+                    <p class="hero-subtitle">
+                        En Askesis, fusionamos la ciencia del ejercicio con un enfoque 100% personalizado para guiarte.
+                        Supera pruebas físicas, potencia tu rendimiento deportivo o construye un estilo de vida más fuerte y saludable.
+                    </p>
+                    
+                    <div class="hero-plans-container-kow">
+                        <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20la%20Asesoria%20Mensual." target="_blank" class="hero-plan-card-kow">
+                            <div>
+                                <h3 class="hero-plan-title-kow">Asesoria Mensual Gym/Calistenia</h3>
+                                <p class="hero-plan-note-kow text-xs min-h-[4.5em] flex items-center justify-center">Planificación y seguimiento continuo para tus metas en gimnasio o con peso corporal.</p>
+                            </div>
+                            <div class="hero-plan-action-button-kow mt-auto"><i class="fab fa-whatsapp mr-2"></i>Consultar</div>
+                        </a>
+    
+                        <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20el%20Plan%20Trimestral." target="_blank" class="hero-plan-card-kow recommended">
+                            <div>
+                                <span class="recommended-tag-hero-kow">Más Popular</span>
+                                <h3 class="hero-plan-title-kow">Plan Trimestral</h3>
+                                <p class="hero-plan-note-kow text-xs min-h-[4.5em] flex items-center justify-center">Compromiso a largo plazo para resultados sólidos y sostenibles. Incluye seguimiento completo.</p>
+                            </div>
+                            <div class="hero-plan-action-button-kow mt-auto"><i class="fab fa-whatsapp mr-2"></i>Consultar</div>
+                        </a>
+    
+                        <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quisiera%20informaci%C3%B3n%20sobre%20la%20Asesor%C3%ADa%201:1." target="_blank" class="hero-plan-card-kow">
+                            <div>
+                                <h3 class="hero-plan-title-kow">Asesoría 1:1</h3>
+                                <p class="hero-plan-note-kow text-xs min-h-[4.5em] flex items-center justify-center">Sesión dedicada para resolver dudas, evaluar técnica o definir un plan de acción inicial.</p>
+                            </div>
+                             <div class="hero-plan-action-button-kow mt-auto"><i class="fab fa-whatsapp mr-2"></i>Consultar</div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
