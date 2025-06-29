@@ -1,4 +1,4 @@
-<!DOCTYPE<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -155,7 +155,7 @@
             text-align: center;
         }
 
-        #quienes-somos, #beneficios, #guias, #programas-especificos { 
+        #beneficios, #guias, #programas-especificos { 
             background-color: var(--askesis-dark); 
         }
         #cta-final { background-color: var(--askesis-gray); color: var(--askesis-text-white); }
@@ -356,40 +356,7 @@
         .program-card-kow .program-cta-kow:hover {
             background-color: #d97019;
         }
-
-        .feature-card-qs-dark { 
-            background-color: var(--askesis-gray);
-            padding: 1.5rem; 
-            border-radius: 10px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border-top: 3px solid var(--askesis-orange); 
-        }
-        .feature-card-qs-dark:hover {
-            transform: translateY(-5px); 
-            box-shadow: 0 8px 25px rgba(245, 130, 32, 0.15); 
-        }
-        .feature-card-qs-dark .qs-icon {
-            font-size: 2.5rem; 
-            color: var(--askesis-orange); 
-            margin-bottom: 0.75rem;
-            transition: transform 0.3s ease;
-        }
-        .feature-card-qs-dark:hover .qs-icon {
-            transform: scale(1.1); 
-        }
-        .feature-card-qs-dark .qs-title {
-            font-size: 1.2em; 
-            color: var(--askesis-text-white); 
-            font-family: 'Roboto', sans-serif;
-            font-weight: 700;
-            margin-bottom: 0.5rem; 
-        }
-        .feature-card-qs-dark p {
-            color: var(--askesis-light-gray);
-            font-size: 0.9em;
-        }
-
+        
         .collapsible-section-dark details {
             border-radius: 8px;
             border: 1px solid var(--askesis-border); 
@@ -635,6 +602,58 @@
             display: none;
         }
 
+        /* --- Estilos para el Modal de "Quién Soy" --- */
+        .profile-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: none; /* Initially hidden */
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+        .profile-modal-content {
+            background-color: var(--askesis-gray);
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            height: 85%;
+            max-width: 1200px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--askesis-border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .profile-modal-close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: var(--askesis-light-gray);
+            font-size: 2.5rem;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.3s ease, transform 0.3s ease;
+            z-index: 2001;
+        }
+        .profile-modal-close:hover {
+            color: var(--askesis-orange);
+            transform: scale(1.1);
+        }
+        .profile-modal-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 4px;
+            background-color: white; /* Fallback color while loading */
+        }
+        /* --- Fin de estilos para el Modal --- */
+
+
         @media (max-width: 767px) {
             .tools-nav-link {
                 width: 40px; 
@@ -757,10 +776,11 @@
                 </a>
             </div>
 
+            <!-- Menú de navegación para escritorio -->
             <nav class="hidden md:flex items-center">
                 <a href="#hero" class="nav-link active">Inicio</a>
                 <a href="#programas-especificos" class="nav-link">Programas</a>
-                <a href="#quienes-somos" class="nav-link">Quiénes Somos</a>
+                <a href="#" id="open-profile-modal-desktop" class="nav-link">Quién Soy</a>
                 <a href="#beneficios" class="nav-link">Beneficios</a>
                 <a href="#guias" class="nav-link">Guías Gratis</a>
                 <a href="#cta-final" class="nav-link">Contacto</a>
@@ -772,6 +792,7 @@
             </button>
         </div>
 
+        <!-- Menú de navegación para móviles -->
         <div id="mobile-menu" class="hidden md:hidden bg-askesis-dark border-t border-askesis-border">
             <a href="https://OmniaInBonum.github.io/askesis-links/Herramientas%20Utiles.html" target="_blank" class="mobile-menu-link-wrapper block text-askesis-text-white text-center py-3 nav-link-mobile">
                 <span class="tools-nav-link">
@@ -780,7 +801,7 @@
             </a>
             <a href="#hero" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Inicio</a>
             <a href="#programas-especificos" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Programas</a>
-            <a href="#quienes-somos" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Quiénes Somos</a>
+            <a href="#" id="open-profile-modal-mobile" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Quién Soy</a>
             <a href="#beneficios" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Beneficios</a>
             <a href="#guias" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Guías Gratis</a>
             <a href="#cta-final" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Contacto</a>
@@ -877,49 +898,7 @@
             </div>
         </section>
 
-        <section id="quienes-somos" class="page-section scroll-mt-header">
-            <div class="content-wrapper">
-                <h2 class="section-title"><i class="fas fa-users mr-3"></i>Quiénes Somos</h2>
-                
-                <div class="flex justify-center mb-6"> 
-                    <div class="rounded-full overflow-hidden h-32 w-32 md:h-40 md:w-40 bg-askesis-dark flex items-center justify-center border-2 border-askesis-orange shadow-lg">
-                        <img src="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" alt="Logo Askesis Circular" class="w-full h-full object-cover">
-                    </div>
-                </div>
-
-                <p class="text-center italic text-askesis-light-gray text-base max-w-2xl mx-auto mb-10">
-                    "'Askesis': un viaje continuo de automejora y disciplina, elevando tu potencial físico y mental."
-                </p>
-
-
-                <div class="text-center max-w-3xl mx-auto mb-12">
-                    <p class="text-lg">Somos tu aliado estratégico en el camino hacia tu mejor versión. En Askesis, la <strong class="text-askesis-orange">pasión por el movimiento</strong> se une con la <strong class="text-askesis-blue">rigurosidad científica</strong> para ofrecerte un servicio de entrenamiento personalizado que realmente marca la diferencia.</p>
-                    <p class="mt-4 text-lg">Dirigido por <strong class="text-askesis-orange">Luis Patricio Ruiz Ruiz</strong>, Técnico Deportivo y atleta especializado, nuestro compromiso es contigo, con tus metas y con tu bienestar integral.</p>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="feature-card-qs-dark">
-                        <i class="fas fa-microscope qs-icon"></i>
-                        <h3 class="qs-title">Enfoque Científico</h3>
-                        <p>Planes basados en evidencia, no en modas. Maximizamos tu progreso de forma segura y eficaz.</p>
-                    </div>
-                    <div class="feature-card-qs-dark">
-                        <i class="fas fa-user-check qs-icon"></i>
-                        <h3 class="qs-title">100% Personalizado</h3>
-                        <p>Tu plan es único, diseñado para tus objetivos, tu cuerpo y tu ritmo de vida. No hay dos iguales.</p>
-                    </div>
-                    <div class="feature-card-qs-dark">
-                        <i class="fas fa-headset qs-icon"></i>
-                        <h3 class="qs-title">Soporte Continuo</h3>
-                        <p>Estamos contigo en cada paso, resolviendo dudas, ajustando tu plan y motivándote a seguir.</p>
-                    </div>
-                    <div class="feature-card-qs-dark">
-                        <i class="fas fa-shield-heart qs-icon"></i>
-                        <h3 class="qs-title">Prevención y Técnica</h3>
-                        <p>Priorizamos tu salud. Técnica impecable y progresión inteligente para evitar lesiones.</p>
-                    </div>
-                 </div>
-            </div>
-        </section>
+        <!-- SECCIÓN QUIÉNES SOMOS ELIMINADA -->
         
         <section id="beneficios" class="page-section scroll-mt-header collapsible-section-dark">
             <div class="content-wrapper">
@@ -1034,7 +1013,6 @@
             <div class="mb-8 footer-links">
                 <a href="#hero">Inicio</a> |
                 <a href="#programas-especificos">Programas</a> |
-                <a href="#quienes-somos">Quiénes Somos</a> |
                 <a href="#beneficios">Beneficios</a> |
                 <a href="#guias">Guías</a> |
                 <a href="#cta-final">Contacto</a>
@@ -1053,6 +1031,7 @@
         </div>
     </footer>
 
+    <!-- Botones Flotantes -->
     <div class="floating-btn-container">
         <a href="#guias" class="floating-btn guias-float" title="Ver Guías Gratuitas">
             <i class="fas fa-book-open"></i> <span class="btn-text">Guías</span>
@@ -1060,6 +1039,14 @@
         <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20necesito%20informaci%C3%B3n%20sobre%20sus%20planes." class="floating-btn whatsapp-float" target="_blank" title="Contactar por WhatsApp">
             <i class="fab fa-whatsapp"></i> <span class="btn-text">WhatsApp</span>
         </a>
+    </div>
+
+    <!-- Modal para "Quién Soy" -->
+    <div id="profile-modal" class="profile-modal-overlay">
+        <div class="profile-modal-content">
+            <span id="close-profile-modal" class="profile-modal-close">&times;</span>
+            <iframe id="profile-iframe" class="profile-modal-iframe" src="" frameborder="0"></iframe>
+        </div>
     </div>
 
 
@@ -1109,6 +1096,11 @@
 
             allNavLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
+                    // Check if the clicked link is a modal trigger
+                    if (link.id === 'open-profile-modal-desktop' || link.id === 'open-profile-modal-mobile') {
+                        return; // The modal script will handle this
+                    }
+
                     let actualLinkElement = link;
                     if (link.classList.contains('mobile-menu-link-wrapper')) {
                         actualLinkElement = link.querySelector('.tools-nav-link');
@@ -1167,11 +1159,9 @@
                 }
             });
 
-
             const sections = document.querySelectorAll('main > section[id]');
             const desktopNavLinks = document.querySelectorAll('header nav a.nav-link'); 
             const mobileNavLinksForActiveState = document.querySelectorAll('#mobile-menu a.nav-link-mobile');
-
 
             function setActiveLink() {
                 if (header) headerHeight = header.offsetHeight;
@@ -1189,18 +1179,22 @@
                 }
                 
                 desktopNavLinks.forEach(link => {
-                    link.classList.remove('active'); 
-                    let linkHref = link.getAttribute('href');
-                    if (linkHref === `#${currentActiveId}`) {
-                        link.classList.add('active');
+                    if (link.id !== 'open-profile-modal-desktop') {
+                        link.classList.remove('active'); 
+                        let linkHref = link.getAttribute('href');
+                        if (linkHref === `#${currentActiveId}`) {
+                            link.classList.add('active');
+                        }
                     }
                 });
                 
                 mobileNavLinksForActiveState.forEach(link => {
                     const isToolsLink = link.classList.contains('mobile-menu-link-wrapper') || 
                                         (link.classList.contains('nav-link-mobile') && link.querySelector('.tools-nav-link'));
+                    
+                    const isProfileLink = link.id === 'open-profile-modal-mobile';
 
-                    if (!isToolsLink) {
+                    if (!isToolsLink && !isProfileLink) {
                         link.classList.remove('text-askesis-orange', 'font-bold'); 
                         let linkHref = link.getAttribute('href');
                         if (linkHref === `#${currentActiveId}`) {
@@ -1220,6 +1214,61 @@
                     setActiveLink();
                 }); 
             }
+
+            // --- Lógica para el Modal de "Quién Soy" ---
+            const profileModal = document.getElementById('profile-modal');
+            const openProfileButtonDesktop = document.getElementById('open-profile-modal-desktop');
+            const openProfileButtonMobile = document.getElementById('open-profile-modal-mobile');
+            const closeProfileButton = document.getElementById('close-profile-modal');
+            const profileIframe = document.getElementById('profile-iframe');
+            // URL que renderiza el HTML en lugar de mostrar el código
+            const profileUrl = 'https://htmlpreview.github.io/?https://github.com/OmniaInBonum/Biblioteca-Askesis/blob/main/biblioteca%20Askesis/perfil%20general.html';
+
+            function openModal(e) {
+                e.preventDefault();
+                // Asigna la URL al iframe solo si no está ya cargada
+                if (profileIframe.src !== profileUrl) {
+                   profileIframe.src = profileUrl;
+                }
+                // Muestra el modal
+                if (profileModal) profileModal.style.display = 'flex';
+
+                // Cierra el menú móvil si está abierto
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    if (mobileMenuIcon) {
+                        mobileMenuIcon.classList.remove('fa-times');
+                        mobileMenuIcon.classList.add('fa-bars');
+                    }
+                }
+            }
+
+            function closeModal() {
+                if (profileModal) profileModal.style.display = 'none';
+                // Opcional: limpiar el src del iframe para detener videos/audio si los hubiera
+                // profileIframe.src = ''; 
+            }
+
+            if(openProfileButtonDesktop) openProfileButtonDesktop.addEventListener('click', openModal);
+            if(openProfileButtonMobile) openProfileButtonMobile.addEventListener('click', openModal);
+            if(closeProfileButton) closeProfileButton.addEventListener('click', closeModal);
+
+            // Cierra el modal al hacer clic en el fondo oscuro (overlay)
+            if(profileModal) {
+                profileModal.addEventListener('click', (e) => {
+                    if (e.target === profileModal) {
+                        closeModal();
+                    }
+                });
+            }
+
+            // Cierra el modal con la tecla 'Escape'
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && profileModal.style.display === 'flex') {
+                    closeModal();
+                }
+            });
+
         });
     </script>
 
