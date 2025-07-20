@@ -4,36 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Askesis - Entrenamiento Personalizado Basado en Ciencia</title>
-    <meta name="description" content="Transforma tu físico y alcanza tus metas con Askesis. Entrenamiento online personalizado, guías gratuitas y adaptado a ti.">
+    <title>Askesis  - Potencia tu Movimiento</title>
+    <meta name="description" content="Askesis : Preparación física especifica, Calistenia, Entrenamiento personalizado y soluciones corporativas en Chile. Potencia tu movimiento y bienestar.">
+    <!-- Google Fonts - Inter (for general text), Roboto (for titles), Lato, Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Tailwind CSS CDN (for custom message box styling) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" type="image/jpeg">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'askesis-blue': '#005A9C', // Azul Askesis (secundario)
-                        'askesis-green': '#008037', // Verde Askesis
-                        'askesis-orange': '#F58220', // Naranja Askesis (acento principal)
-                        'askesis-dark': '#121212',  // Fondo principal muy oscuro (casi negro)
-                        'askesis-gray': '#1E1E1E',  // Fondo de tarjetas y elementos secundarios oscuros
-                        'askesis-light-gray': '#CCCCCC', // Texto secundario (ligeramente más claro para mejor contraste)
-                        'askesis-text-white': '#FFFFFF', // Texto principal
-                        'askesis-border': '#333333', // Bordes sutiles
-                    },
-                    fontFamily: {
-                        'lato': ['Lato', 'sans-serif'],
-                        'roboto': ['Roboto', 'sans-serif'],
-                        'montserrat': ['Montserrat', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+
     <style>
+        /* Definición de variables CSS para la paleta de colores */
         :root {
             --askesis-blue: #005A9C;
             --askesis-green: #008037;
@@ -47,16 +28,30 @@
 
         html { scroll-behavior: smooth; }
 
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Montserrat', 'sans-serif';
-            color: var(--askesis-light-gray);
-            background-color: var(--askesis-dark);
-            line-height: 1.7;
+            font-family: 'Montserrat', 'sans-serif'; /* Usando Montserrat como fuente principal */
+            line-height: 1.6;
+            background-color: var(--askesis-dark); /* Fondo principal oscuro */
+            color: var(--askesis-light-gray); /* Texto secundario por defecto */
+            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Header and Navigation */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header and Navigation (from test web (8).html) */
         .main-header {
             position: fixed;
             top: 0;
@@ -108,6 +103,7 @@
             padding: 4rem 1.5rem; 
         }
         
+        /* Hero Section (from test web (8).html) */
         #hero {
             position: relative;
             overflow: hidden;
@@ -155,17 +151,7 @@
             text-align: center;
         }
 
-        #beneficios, #guias, #programas-especificos { 
-            background-color: var(--askesis-dark); 
-        }
-        #cta-final { background-color: var(--askesis-gray); color: var(--askesis-text-white); }
-
-        .content-wrapper {
-            max-width: 1200px; 
-            margin-left: auto;
-            margin-right: auto;
-        }
-
+        /* General Section Titles (from test web (8).html) */
         .section-title { 
             font-family: 'Roboto', sans-serif;
             color: var(--askesis-text-white);
@@ -201,11 +187,20 @@
 
         .hero-plans-container-kow {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            /* Default for smaller screens: auto-fit with a minimum size */
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
             gap: 1.5rem; 
             margin-top: 2rem; 
             width: 100%; 
-            max-width: 1000px; 
+            max-width: 1000px; /* Limits the max width of the grid container */
+        }
+
+        /* New media query for larger screens to ensure 5 items per row and even distribution */
+        @media (min-width: 1024px) { /* Tailwind's 'lg' breakpoint */
+            .hero-plans-container-kow {
+                grid-template-columns: repeat(5, 1fr); /* Forces 5 equal columns */
+                max-width: 1200px; /* Allow it to expand more on large screens */
+            }
         }
 
         .hero-plan-card-kow {
@@ -280,6 +275,58 @@
         .hero-plan-card-kow.recommended:hover .hero-plan-action-button-kow {
             background-color: #00662c;
         }
+
+        /* Base style for circular cards in Hero section */
+        .hero-circle-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 50%; /* Make it circular */
+            width: 150px; /* Fixed size for circles */
+            height: 150px; /* Fixed size for circles */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            text-decoration: none; /* Remove underline for the link */
+            justify-self: center; /* Center horizontally in grid cell */
+            align-self: center; /* Center vertically in grid cell */
+            flex-shrink: 0; /* Prevent shrinking on smaller screens */
+        }
+        .hero-circle-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        }
+        .hero-circle-card .circle-label {
+            font-size: 0.9em; 
+            color: var(--askesis-text-white);
+            font-weight: 600;
+            margin-top: 0.5rem;
+            line-height: 1.2;
+        }
+
+        /* Specific styles for Instagram circle */
+        .hero-instagram-circle img {
+            width: 70px; /* Size of the image inside the circle */
+            height: 70px;
+            object-fit: contain; 
+            border-radius: 50%; /* Keep image circular */
+        }
+        .hero-instagram-circle:hover {
+            border-color: var(--askesis-orange); /* Orange border on hover */
+        }
+
+        /* Specific styles for Tools circle */
+        .hero-tools-circle i {
+            font-size: 3rem; /* Size of the icon inside the circle */
+            color: var(--askesis-green); /* Green icon color */
+        }
+        .hero-tools-circle:hover {
+            border-color: var(--askesis-blue); /* Blue border on hover */
+        }
         
         .programs-grid-kow { 
             display: grid;
@@ -350,7 +397,7 @@
             font-weight: 700; 
             font-size: 0.85em;
             text-transform: uppercase;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
             margin-top: 1rem;
         }
         .program-card-kow .program-cta-kow:hover {
@@ -506,6 +553,7 @@
              transform: scale(1.03); 
         }
 
+        /* Footer (from test web (8).html) */
         footer {
             background-color: #0A0A0A; 
             color: var(--askesis-light-gray);
@@ -521,6 +569,7 @@
         footer .social-links-footer i { font-size: 1.5rem; }
         footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
 
+        /* Floating Buttons (from test web (8).html) */
         .floating-btn-container { 
             position: fixed;
             bottom: 20px;
@@ -573,33 +622,6 @@
         }
         .guias-float:hover {
             background-color: #d97019;
-        }
-
-        .tools-nav-link {
-            background-color: var(--askesis-blue);
-            padding: 0.75rem; 
-            border-radius: 50%; 
-            width: 50px; 
-            height: 50px;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-            flex-shrink: 0; 
-            text-decoration: none; 
-        }
-        .tools-nav-link:hover {
-            background-color: #004b80; 
-            transform: scale(1.1); 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-        }
-        .tools-nav-link i {
-            color: var(--askesis-green);
-            font-size: 1.8rem; 
-        }
-        .tools-nav-link span { 
-            display: none;
         }
 
         /* --- Estilos para el Modal de "Quién Soy" --- */
@@ -655,63 +677,26 @@
 
 
         @media (max-width: 767px) {
-            .tools-nav-link {
-                width: 40px; 
-                height: 40px;
-                padding: 0.5rem;
-                box-shadow: 0 1px 4px rgba(0,0,0,0.2); 
-            }
-            .tools-nav-link i {
-                font-size: 1.3rem; 
-            }
             #beneficios.collapsible-section-dark details summary {
                 font-size: 1.8em; 
                 padding: 1.2rem; 
             }
+            /* Adjust circle size for mobile to ensure they fit */
+            .hero-circle-card {
+                width: 120px;
+                height: 120px;
+            }
+            .hero-instagram-circle img {
+                width: 60px;
+                height: 60px;
+            }
+            .hero-tools-circle i {
+                font-size: 2.5rem;
+            }
+            .hero-circle-card .circle-label {
+                font-size: 0.8em;
+            }
         }
-        .mobile-menu-link-wrapper { 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 0.75rem 0;
-            cursor: pointer; 
-            transition: background-color 0.3s ease;
-        }
-        .mobile-menu-link-wrapper:hover {
-            background-color: var(--askesis-gray); 
-        }
-        .mobile-menu-link-wrapper .tools-nav-link {
-            background: none; 
-            color: var(--askesis-text-white); 
-            box-shadow: none; 
-            width: auto; 
-            height: auto;
-            padding: 0; 
-            border-radius: 0; 
-            justify-content: center; 
-            gap: 8px; 
-            text-align: center; 
-            transform: none; 
-        }
-        .mobile-menu-link-wrapper .tools-nav-link:hover { 
-            background: none;
-            transform: none;
-            box-shadow: none;
-        }
-        .mobile-menu-link-wrapper .tools-nav-link span {
-            display: inline; 
-            font-weight: 600; 
-            text-transform: uppercase; 
-            font-size: 1rem; 
-            margin: 0; 
-            text-decoration: none; 
-        }
-        .mobile-menu-link-wrapper .tools-nav-link i {
-            color: var(--askesis-orange); 
-            font-size: 1.5rem; 
-        }
-
         @media (max-width: 768px) { 
             #hero .hero-title {
                 font-size: 2.2rem;    
@@ -723,7 +708,7 @@
                 max-width: 90%;       
             }
              .hero-plans-container-kow { 
-                grid-template-columns: 1fr; 
+                grid-template-columns: 1fr; /* Stack all items on small mobile */
                 max-width: 350px; 
              }
              .hero-plan-card-kow {
@@ -739,6 +724,17 @@
             .main-header nav.hidden.md\:flex { display: none !important; }
             .programs-grid-kow { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); } 
 
+            .impact-stats .stat-item {
+                width: 140px; /* Adjust size for mobile */
+                height: 140px;
+                padding: 1.5rem;
+            }
+            .impact-stats .stat-number {
+                font-size: 2.8rem;
+            }
+            .impact-stats .stat-label {
+                font-size: 1rem;
+            }
         }
          @media (max-width: 480px) {
             .floating-btn:hover { 
@@ -758,18 +754,320 @@
              }
         }
 
+        /* Original Navbar styles (adjusted for new structure) */
+        /* These are now mostly handled by .main-header, but some specifics remain */
+        .navbar { /* This class is still used on the nav element */
+            background: transparent; /* Default transparent, handled by JS scrolled class */
+            border-bottom: none; /* Handled by JS scrolled class */
+        }
+        .navbar.scrolled { /* This class is added by JS */
+            background: rgba(18, 18, 18, 0.98); /* Fondo oscuro al scrollear */
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+        /* Overrides for nav-logo and nav-link to match the new color scheme */
+        .nav-logo h2 {
+            color: var(--askesis-orange); /* Naranja de acento */
+        }
+        .nav-menu .nav-link {
+            color: var(--askesis-light-gray); /* Texto claro */
+        }
+        .nav-menu .nav-link:hover {
+            color: var(--askesis-orange); /* Naranja al pasar el ratón */
+        }
+        .nav-menu .nav-link::after {
+            background-color: var(--askesis-orange); /* Naranja para el subrayado */
+        }
+        .hamburger .bar {
+            background-color: var(--askesis-text-white); /* Barras blancas */
+        }
+        /* Custom message box styling using Tailwind classes */
+        #messageBox .bg-white {
+            background-color: var(--askesis-gray);
+            color: var(--askesis-text-white);
+        }
+        #messageBox .bg-blue-500 {
+            background-color: var(--askesis-blue);
+        }
+        #messageBox .hover\:bg-blue-600:hover {
+            background-color: #004b80; /* Darker blue on hover */
+        }
+
+        /* New styles for "Conoce Askesis" content cards */
+        .about-info-card {
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            margin-bottom: 2rem; /* Spacing between cards */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .about-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+        .about-info-card h3 {
+            color: var(--askesis-orange); /* Accent color for titles within cards */
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+        }
+        .about-info-card p {
+            color: var(--askesis-light-gray);
+            line-height: 1.7;
+            margin-bottom: 0; /* Remove default paragraph margin */
+        }
+
+        /* Enhanced styles for Impact section */
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjust min-width for circles */
+            gap: 2rem;
+            justify-items: center; /* Center items in grid */
+            margin-bottom: 4rem; /* Space below stats */
+        }
+
+        .impact-stats .stat-item {
+            background: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            width: 180px; /* Fixed size for circle */
+            height: 180px; /* Fixed size for circle */
+            border-radius: 50%; /* Make it circular */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .impact-stats .stat-item:hover {
+            transform: translateY(-5px) scale(1.05); /* Pop effect on hover */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+        .impact-stats .stat-number {
+            font-size: 4rem; /* Larger numbers */
+            color: var(--askesis-green); /* Green for numbers */
+            text-shadow: 0 0 15px rgba(0, 128, 55, 0.5); /* Glowing effect */
+            font-weight: 900;
+            line-height: 1; /* Adjust line height for numbers */
+        }
+        .impact-stats .stat-label {
+            font-size: 1.2rem; /* Larger label */
+            color: var(--askesis-text-white);
+            margin-top: 0.5rem;
+        }
+
+        .testimonials {
+            padding-top: 2rem; /* Add some space after stats */
+        }
+        .testimonials h3 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-text-white);
+            font-size: 2em; 
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .testimonials .testimonial {
+            background: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            padding: 2.5rem; /* Increased padding */
+            border-radius: 12px; /* More rounded corners */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .testimonials .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+        .testimonial-content p {
+            font-size: 1.1rem; /* Larger text */
+            color: var(--askesis-light-gray);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        .testimonial-author {
+            text-align: right;
+            margin-top: auto; /* Push to bottom */
+        }
+        .testimonial-author strong {
+            color: var(--askesis-orange);
+            font-size: 1.1rem;
+            display: block;
+        }
+        .testimonial-author span {
+            color: var(--askesis-light-gray);
+            font-size: 1rem;
+        }
+
+        /* Enhanced styles for Contact section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        @media (min-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr 1.5fr; /* Info on left, form on right */
+            }
+        }
+
+        .contact-info h3 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-text-white);
+            font-size: 2em;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        .contact-info p {
+            color: var(--askesis-light-gray);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: 1fr; /* Stack on mobile */
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        @media (min-width: 640px) {
+            .contact-methods {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Two columns on larger screens */
+            }
+        }
+
+        .contact-method {
+            background: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            padding: 1.5rem; /* Increased padding */
+            border-radius: 12px; /* More rounded corners */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none; /* Ensure links don't have default underline */
+            color: inherit; /* Inherit text color */
+        }
+        .contact-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+        .contact-method i {
+            color: var(--askesis-green); /* Green accent for contact icons */
+            font-size: 2.2rem; /* Larger icons */
+            flex-shrink: 0;
+        }
+        .contact-method h4 {
+            color: var(--askesis-text-white);
+            font-size: 1.2rem;
+            margin-bottom: 0.2rem;
+        }
+        .contact-method p {
+            color: var(--askesis-light-gray);
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        .social-links h4 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-text-white);
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center; /* Center on mobile */
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center; /* Center icons */
+            gap: 1.5rem;
+        }
+        .social-icon {
+            color: var(--askesis-light-gray);
+            font-size: 2rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icon:hover {
+            color: var(--askesis-orange);
+            transform: scale(1.1);
+        }
+
+        .contact-form {
+            background: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            padding: 3rem; /* Increased padding */
+            border-radius: 16px; /* More rounded corners */
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            color: var(--askesis-text-white); /* White labels */
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+            color: var(--askesis-text-white);
+            padding: 1rem; /* Larger padding for inputs */
+            border-radius: 8px; /* More rounded inputs */
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--askesis-orange);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(245, 130, 32, 0.3); /* Focus ring */
+        }
+        .submit-button {
+            display: block;
+            width: 100%;
+            background: var(--askesis-orange);
+            color: var(--askesis-dark) !important;
+            padding: 1.2rem; /* Larger button */
+            border-radius: 10px; /* More rounded button */
+            font-size: 1.2rem; /* Larger text on button */
+            font-weight: 700;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .submit-button:hover {
+            background: #d97019;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 
 <body class="bg-askesis-dark">
 
-    <header class="main-header">
+    <header class="main-header" id="main-header">
         <div class="container mx-auto flex items-center justify-between p-4">
             <div class="flex items-center gap-4">
-                <a href="https://OmniaInBonum.github.io/askesis-links/Herramientas%20Utiles.html" target="_blank" class="tools-nav-link" title="Herramientas Útiles">
-                    <i class="fas fa-tools"></i> <span>Herramientas</span>
-                </a>
-                <a href="#hero" class="flex items-center gap-2 group"> <div class="rounded-full overflow-hidden h-10 w-10 bg-askesis-dark flex items-center justify-center border border-askesis-orange group-hover:border-askesis-green transition-colors duration-300">
+                <!-- Removed tools-nav-link from here -->
+                <a href="#hero" class="flex items-center gap-2 group"> 
+                    <div class="rounded-full overflow-hidden h-10 w-10 bg-askesis-dark flex items-center justify-center border border-askesis-orange group-hover:border-askesis-green transition-colors duration-300">
                         <img src="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" alt="Logo Askesis" class="w-full h-full object-cover">
                     </div>
                     <span class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto group-hover:text-askesis-orange transition-colors duration-300">Askesis</span>
@@ -779,11 +1077,11 @@
             <!-- Menú de navegación para escritorio -->
             <nav class="hidden md:flex items-center">
                 <a href="#hero" class="nav-link active">Inicio</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
                 <a href="#programas-especificos" class="nav-link">Programas</a>
                 <a href="#" id="open-profile-modal-desktop" class="nav-link">Quién Soy</a>
-                <a href="#beneficios" class="nav-link">Beneficios</a>
+                <a href="#impacto" class="nav-link">Impacto</a>
                 <a href="#guias" class="nav-link">Guías Gratis</a>
-                <a href="#cta-final" class="nav-link">Contacto</a>
                 <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20sus%20servicios." target="_blank" class="nav-cta-button ml-4">Únete Ahora</a>
             </nav>
             
@@ -794,17 +1092,13 @@
 
         <!-- Menú de navegación para móviles -->
         <div id="mobile-menu" class="hidden md:hidden bg-askesis-dark border-t border-askesis-border">
-            <a href="https://OmniaInBonum.github.io/askesis-links/Herramientas%20Utiles.html" target="_blank" class="mobile-menu-link-wrapper block text-askesis-text-white text-center py-3 nav-link-mobile">
-                <span class="tools-nav-link">
-                    <i class="fas fa-tools mr-2"></i><span>Herramientas</span>
-                </span>
-            </a>
+            <!-- Removed mobile-menu-link-wrapper as tools link is now in hero section -->
             <a href="#hero" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Inicio</a>
+            <a href="#contacto" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Contacto</a>
             <a href="#programas-especificos" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Programas</a>
             <a href="#" id="open-profile-modal-mobile" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Quién Soy</a>
-            <a href="#beneficios" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Beneficios</a>
+            <a href="#impacto" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Impacto</a>
             <a href="#guias" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Guías Gratis</a>
-            <a href="#cta-final" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Contacto</a>
             <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20interesado/a%20en%20sus%20servicios." target="_blank" class="block text-askesis-orange text-center font-bold py-4 hover:bg-askesis-gray">Únete Ahora</a>
         </div>
     </header>
@@ -847,11 +1141,116 @@
                             </div>
                              <div class="hero-plan-action-button-kow mt-auto"><i class="fab fa-whatsapp mr-2"></i>Consultar</div>
                         </a>
+                        
+                        <!-- Círculo para Instagram -->
+                        <a href="https://www.instagram.com/askesis111" target="_blank" class="hero-circle-card hero-instagram-circle" title="Visita nuestro Instagram">
+                            <img src="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" alt="Logo Askesis">
+                            <span class="circle-label">Instagram</span>
+                        </a>
+
+                        <!-- Círculo para Herramientas Útiles -->
+                        <a href="https://OmniaInBonum.github.io/askesis-links/Herramientas%20Utiles.html" target="_blank" class="hero-circle-card hero-tools-circle" title="Herramientas Útiles">
+                            <i class="fas fa-tools"></i>
+                            <span class="circle-label">Herramientas</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Contact Section (Moved to be directly after Hero) -->
+        <section id="contacto" class="contact page-section scroll-mt-header">
+            <div class="container">
+                <h2 class="section-title">Contáctanos</h2>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>¿Listo para comenzar tu transformación?</h3>
+                        <p>
+                            Estamos aquí para ayudarte a alcanzar tus objetivos de actividad física y bienestar. 
+                            Contáctanos para conocer más sobre nuestros servicios.
+                        </p>
+                        
+                        <div class="contact-methods">
+                            <!-- WhatsApp Contact Method -->
+                            <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20tengo%20una%20consulta." target="_blank" class="contact-method">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h4>Teléfono</h4>
+                                    <p>+569 75401150</p>
+                                </div>
+                            </a>
+                            
+                            <!-- Instagram Contact Method -->
+                            <a href="https://www.instagram.com/askesis111" target="_blank" class="contact-method">
+                                <i class="fab fa-instagram"></i>
+                                <div>
+                                    <h4>Instagram</h4>
+                                    <p>@askesis111</p>
+                                </div>
+                            </a>
+                            
+                            <div class="contact-method">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Ubicación</h4>
+                                    <p>Ancud Chiloe y Online</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <h4>Síguenos en redes sociales</h4>
+                            <div class="social-icons">
+                                <a href="https://www.instagram.com/askesis111" target="_blank" class="social-icon" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" class="social-icon" title="Ver YouTube"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="nombre">Nombre completo</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="servicio">Servicio de interés</label>
+                                <select id="servicio" name="servicio" required>
+                                    <option value="">Selecciona un servicio</option>
+                                    <option value="patin-carrera">Preparación Física - Patín Carrera</option>
+                                    <option value="calistenia">Clases de Calistenia</option>
+                                    <option value="gimnasio">Entrenamiento Personalizado</option>
+                                    <option value="talleres">Talleres y Clínicas</option>
+                                    <option value="corporativo">Servicios Corporativos</option>
+                                    <option value="comunidad">Eventos Comunitarios</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="mensaje">Mensaje</label>
+                                <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos sobre tus objetivos y cómo podemos ayudarte..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-button">Enviar mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programas Específicos Destacados (Moved after Contact) -->
         <section id="programas-especificos" class="page-section scroll-mt-header">
             <div class="content-wrapper">
                 <h2 class="section-title"><i class="fas fa-star mr-3"></i>Programas Específicos Destacados</h2>
@@ -897,55 +1296,34 @@
                 </div>
             </div>
         </section>
-
-        <!-- SECCIÓN QUIÉNES SOMOS ELIMINADA -->
         
-        <section id="beneficios" class="page-section scroll-mt-header collapsible-section-dark">
-            <div class="content-wrapper">
-                 <details>
-                    <summary>
-                        Beneficios Que Transforman
-                        <span class="summary-icon"><i class="fas fa-chevron-down"></i></span>
-                    </summary>
-                    <div class="collapsible-content-dark">
-                        <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Con Askesis, no solo entrenas: inviertes en una mejora integral de tu calidad de vida y rendimiento.</p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"> 
-                            <div class="beneficio-card-dark"> 
-                                <i class="fas fa-map-signs beneficio-icon"></i>
-                                <h3 class="beneficio-title-dark">Claridad y Dirección</h3>
-                                <p>Un plan preciso que te dice qué, cómo y por qué, optimizando cada minuto de tu esfuerzo.</p>
-                            </div>
-                            <div class="beneficio-card-dark">
-                                <i class="fas fa-bullseye beneficio-icon"></i>
-                                <h3 class="beneficio-title-dark">Resultados Medibles</h3>
-                                <p>Progreso tangible hacia tus metas, respaldado por la ciencia y un seguimiento detallado.</p>
-                            </div>
-                            <div class="beneficio-card-dark">
-                                <i class="fas fa-shield-alt beneficio-icon"></i>
-                                <h3 class="beneficio-title-dark">Entrenamiento Seguro</h3>
-                                <p>Minimiza el riesgo de lesiones con un enfoque en la técnica correcta y una progresión inteligente.</p>
-                            </div>
-                            <div class="beneficio-card-dark">
-                                <i class="fas fa-fire beneficio-icon"></i>
-                                <h3 class="beneficio-title-dark">Motivación Constante</h3>
-                                <p>El soporte cercano y ver tus avances mantendrán tu compromiso y energía al máximo.</p>
-                            </div>
-                            <div class="beneficio-card-dark">
-                                <i class="fas fa-user-graduate beneficio-icon"></i>
-                                <h3 class="beneficio-title-dark">Autonomía y Conocimiento</h3>
-                                <p>Aprende los fundamentos de tu entrenamiento, ganando confianza y herramientas para el futuro.</p>
-                            </div>
-                             <div class="beneficio-card-dark">
-                                <i class="fas fa-heart-pulse beneficio-icon"></i>
-                                <h3 class="beneficio-title-dark">Bienestar Integral</h3>
-                                <p>Más allá del físico, mejora tu energía, tu salud y tu relación con el movimiento y tu cuerpo.</p>
-                            </div>
-                        </div>
+        <!-- Impact Section (Remains in its place) -->
+        <section id="impacto" class="impact page-section scroll-mt-header">
+            <div class="container">
+                <h2 class="section-title">Impacto Askesis</h2>
+                
+                <div class="impact-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">Atletas Entrenados</div>
                     </div>
-                </details>
+                    <div class="stat-item">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Clubes Asesorados</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Personas Transformadas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Empresas Aliadas</div>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- Guías Gratuitas (Remains in its place) -->
         <section id="guias" class="page-section scroll-mt-header">
             <div class="content-wrapper">
                 <h2 class="section-title"><i class="fas fa-book-open mr-3"></i>Guías Gratuitas</h2>
@@ -984,26 +1362,9 @@
                 </div>
             </div>
         </section>
-
-        <section id="cta-final" class="page-section scroll-mt-header">
-            <div class="content-wrapper text-center">
-                <h2 class="section-title"><i class="fas fa-paper-plane mr-3"></i>¿Listo/a Para Empezar Tu Transformación?</h2>
-                <p class="cta-text max-w-2xl mx-auto">
-                    No esperes más para invertir en ti. Da el primer paso hacia la versión más fuerte, saludable y capaz de ti mismo/a.
-                    Contáctame hoy y comencemos a diseñar tu camino al éxito.
-                </p>
-                <div class="mt-10">
-                    <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20estoy%20listo/a%20para%20comenzar%20mi%20transformaci%C3%B3n." target="_blank" class="cta-button-final text-lg">
-                        <i class="fab fa-whatsapp mr-2"></i>¡Sí, Quiero Empezar!
-                    </a>
-                </div>
-                 <div class="mt-8 text-sm">
-                    <p>O envíame un email a: <a href="mailto:luistdu111@gmail.com" class="font-semibold text-askesis-orange hover:underline">luistdu111@gmail.com</a></p>
-                </div>
-            </div>
-        </section>
     </main>
 
+    <!-- Footer (from test web (8).html) -->
     <footer>
         <div class="content-wrapper">
             <div class="rounded-full overflow-hidden h-28 w-28 mx-auto mb-2 bg-askesis-dark flex items-center justify-center border-2 border-askesis-orange shadow-lg">
@@ -1012,10 +1373,9 @@
             <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
             <div class="mb-8 footer-links">
                 <a href="#hero">Inicio</a> |
+                <a href="#contacto">Contacto</a> |
                 <a href="#programas-especificos">Programas</a> |
-                <a href="#beneficios">Beneficios</a> |
-                <a href="#guias">Guías</a> |
-                <a href="#cta-final">Contacto</a>
+                <a href="#guias">Guías</a>
             </div>
             <div class="coach-info-footer mb-6">
                  <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
@@ -1025,13 +1385,13 @@
                  <a href="mailto:luistdu111@gmail.com?subject=Consulta%20desde%20la%20web%20Askesis" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
                  <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20tengo%20una%20consulta." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
                  <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
-                 <a href="https://www.youtube.com/@tuCanalAskesis" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
             </div>
             <p class="copyright-footer">© <span id="currentYearFooter"></span> Askesis. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Botones Flotantes -->
+    <!-- Botones Flotantes (from test web (8).html) -->
     <div class="floating-btn-container">
         <a href="#guias" class="floating-btn guias-float" title="Ver Guías Gratuitas">
             <i class="fas fa-book-open"></i> <span class="btn-text">Guías</span>
@@ -1041,7 +1401,7 @@
         </a>
     </div>
 
-    <!-- Modal para "Quién Soy" -->
+    <!-- Modal para "Quién Soy" (from test web (8).html) -->
     <div id="profile-modal" class="profile-modal-overlay">
         <div class="profile-modal-content">
             <span id="close-profile-modal" class="profile-modal-close">&times;</span>
@@ -1049,13 +1409,12 @@
         </div>
     </div>
 
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const yearSpan = document.getElementById('currentYearFooter');
             if(yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-            const header = document.querySelector('.main-header');
+            const header = document.getElementById('main-header'); 
             let headerHeight = 0;
 
             function updateHeaderCalculations() {
@@ -1092,7 +1451,7 @@
                 });
             }
             
-            const allNavLinks = document.querySelectorAll('header nav a.nav-link, #mobile-menu a.nav-link-mobile, a.guias-float, .hero-plan-card-kow, .footer-links a, .tools-nav-link, .mobile-menu-link-wrapper, .program-cta-kow'); 
+            const allNavLinks = document.querySelectorAll('header nav a.nav-link, #mobile-menu a.nav-link-mobile, a.guias-float, .hero-plan-card-kow, .footer-links a, .hero-circle-card, .program-cta-kow'); 
 
             allNavLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
@@ -1101,12 +1460,9 @@
                         return; // The modal script will handle this
                     }
 
-                    let actualLinkElement = link;
-                    if (link.classList.contains('mobile-menu-link-wrapper')) {
-                        actualLinkElement = link.querySelector('.tools-nav-link');
-                    }
+                    // No need for 'actualLinkElement' logic as tools-nav-link is no longer in header/mobile menu
                     
-                    const targetId = actualLinkElement.getAttribute('href');
+                    const targetId = link.getAttribute('href');
                     
                     if (targetId && targetId.startsWith('#') && targetId.length > 1) { 
                         e.preventDefault(); 
@@ -1182,22 +1538,19 @@
                     if (link.id !== 'open-profile-modal-desktop') {
                         link.classList.remove('active'); 
                         let linkHref = link.getAttribute('href');
-                        if (linkHref === `#${currentActiveId}`) {
+                        if (linkHref && linkHref.startsWith('#') && linkHref === `#${currentActiveId}`) {
                             link.classList.add('active');
                         }
                     }
                 });
                 
                 mobileNavLinksForActiveState.forEach(link => {
-                    const isToolsLink = link.classList.contains('mobile-menu-link-wrapper') || 
-                                        (link.classList.contains('nav-link-mobile') && link.querySelector('.tools-nav-link'));
-                    
                     const isProfileLink = link.id === 'open-profile-modal-mobile';
 
-                    if (!isToolsLink && !isProfileLink) {
+                    if (!isProfileLink) {
                         link.classList.remove('text-askesis-orange', 'font-bold'); 
                         let linkHref = link.getAttribute('href');
-                        if (linkHref === `#${currentActiveId}`) {
+                        if (linkHref && linkHref.startsWith('#') && linkHref === `#${currentActiveId}`) {
                             link.classList.add('text-askesis-orange', 'font-bold');
                         }
                     } else { 
@@ -1269,8 +1622,156 @@
                 }
             });
 
+            // Counter animation for stats (re-added as it was removed in previous steps)
+            const animateCounters = () => {
+                const counters = document.querySelectorAll('.stat-number');
+                
+                counters.forEach(counter => {
+                    const target = parseInt(counter.textContent.replace('+', '')) || 0; 
+                    const increment = target / 100;
+                    let current = 0;
+                    
+                    const updateCounter = () => {
+                        if (current < target) {
+                            current += increment;
+                            counter.textContent = Math.ceil(current) + '+';
+                            setTimeout(updateCounter, 20);
+                        } else {
+                            counter.textContent = target + '+';
+                        }
+                    };
+                    updateCounter();
+                });
+            };
+
+            const statsSection = document.querySelector('.impact-stats');
+            if (statsSection) {
+                const statsObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateCounters();
+                            statsObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                statsObserver.observe(statsSection);
+            }
+
+            // Custom Message Box Functionality (from previous step)
+            function showMessageBox(message) {
+                let messageBox = document.getElementById('messageBox');
+                let messageBoxText = document.getElementById('messageBoxText');
+                let messageBoxClose = document.getElementById('messageBoxClose');
+
+                // Create message box elements if they don't exist
+                if (!messageBox) {
+                    const div = document.createElement('div');
+                    div.id = 'messageBox';
+                    div.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-[9999]';
+                    div.innerHTML = `
+                        <div class="bg-askesis-gray p-8 rounded-lg shadow-xl max-w-sm w-full text-center relative">
+                            <button id="messageBoxClose" class="absolute top-3 right-3 text-askesis-light-gray hover:text-askesis-orange text-2xl font-bold">&times;</button>
+                            <p id="messageBoxText" class="text-askesis-text-white text-lg mb-4"></p>
+                            <button onclick="document.getElementById('messageBox').classList.add('hidden')" class="bg-askesis-orange text-askesis-dark font-bold py-2 px-4 rounded hover:bg-orange-600 transition-colors">Cerrar</button>
+                        </div>
+                    `;
+                    document.body.appendChild(div);
+                    // Re-get elements after creation
+                    messageBox = document.getElementById('messageBox'); 
+                    messageBoxText = document.getElementById('messageBoxText'); 
+                    messageBoxClose = document.getElementById('messageBoxClose'); 
+                }
+
+                messageBoxText.textContent = message;
+                messageBox.classList.remove('hidden');
+
+                messageBoxClose.onclick = () => {
+                    messageBox.classList.add('hidden');
+                };
+
+                messageBox.onclick = (event) => {
+                    if (event.target === messageBox) {
+                        messageBox.classList.add('hidden');
+                    }
+                };
+            }
+
+            // Form handling (Updated to send to WhatsApp)
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(this);
+                    const data = Object.fromEntries(formData);
+                    
+                    if (!data.nombre || !data.email || !data.servicio || !data.mensaje) {
+                        showMessageBox('Por favor, completa todos los campos obligatorios (Nombre, Email, Servicio, Mensaje).');
+                        return;
+                    }
+                    
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(data.email)) {
+                        showMessageBox('Por favor, ingresa un email válido.');
+                        return;
+                    }
+                    
+                    const submitButton = this.querySelector('.submit-button');
+                    const originalText = submitButton.textContent;
+                    
+                    submitButton.textContent = 'Enviando...';
+                    submitButton.disabled = true;
+
+                    // Construct WhatsApp message
+                    const whatsappNumber = '56975401150'; // Your WhatsApp number
+                    let whatsappMessage = `Hola Askesis, mi nombre es ${data.nombre}.`;
+                    whatsappMessage += `\nEmail: ${data.email}`;
+                    if (data.telefono) {
+                        whatsappMessage += `\nTeléfono: ${data.telefono}`;
+                    }
+                    whatsappMessage += `\nServicio de interés: ${data.servicio}`;
+                    whatsappMessage += `\nMensaje: ${data.mensaje}`;
+
+                    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+                    
+                    window.open(whatsappUrl, '_blank');
+
+                    showMessageBox('¡Redirigiendo a WhatsApp! Por favor, envía el mensaje desde allí.');
+                    this.reset();
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                });
+            }
+
+            // Add loading animation (from previous step)
+            window.addEventListener('load', () => {
+                document.body.style.opacity = '1';
+                document.body.style.transition = 'opacity 0.5s ease-in-out';
+            });
+
+            // Initialize page (from previous step)
+            document.addEventListener('DOMContentLoaded', () => {
+                document.body.style.opacity = '0';
+                
+                const interactiveElements = document.querySelectorAll('button, a, .about-info-card, .value-item, .program-card-kow, .beneficio-card-dark, .guia-card-dark, .stat-item, .testimonial, .contact-method');
+                interactiveElements.forEach(el => {
+                    el.style.transition = 'all 0.3s ease';
+                });
+                
+                const focusableElements = document.querySelectorAll('a, button, input, select, textarea');
+                focusableElements.forEach(el => {
+                    el.addEventListener('focus', function() {
+                        this.style.outline = '2px solid var(--askesis-orange)'; 
+                        this.style.outlineOffset = '2px';
+                    });
+                    
+                    el.addEventListener('blur', function() {
+                        this.style.outline = 'none';
+                    });
+                });
+            });
         });
     </script>
-
 </body>
 </html>
+
