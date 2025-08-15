@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page - Programa GAP Femenino</title>
+    <meta name="description" content="Descubre el programa de entrenamiento de 3 meses para Glúteos, Abdomen y Piernas de Askesis.">
+    <!-- Google Fonts - Inter, Roboto, Lato, Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- ESTILOS BASE (Copiados de Mes 1 GAP.html) --- */
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #CCCCCC; 
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            line-height: 1.7;
+            background-color: var(--askesis-dark);
+            color: var(--askesis-light-gray);
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .page-section {
+            padding: 5rem 1.5rem; 
+        }
+
+        .section-title { 
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-text-white);
+            font-size: 2.5rem; 
+            font-weight: 900;
+            margin-bottom: 2.5rem; 
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--askesis-orange);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- ESTILOS ESPECÍFICOS PARA LA LANDING PAGE --- */
+
+        /* Header con navegación */
+        .main-header {
+            background-color: var(--askesis-dark);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .main-header .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+        .main-header .logo-img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--askesis-orange);
+        }
+        .main-header .logo-text {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--askesis-text-white);
+            text-transform: uppercase;
+        }
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .main-nav a {
+            text-decoration: none;
+            color: var(--askesis-light-gray);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .main-nav a:hover {
+            color: var(--askesis-orange);
+        }
+
+        /* Hero Section */
+        #hero-gap {
+            background-image: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.85)), url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/portada%20askesis.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: var(--askesis-text-white);
+            text-align: center;
+            padding: 6rem 1.5rem;
+        }
+        .hero-tag {
+            display: inline-block;
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        #hero-gap h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        #hero-gap p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            color: var(--askesis-light-gray);
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(245, 130, 32, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(245, 130, 32, 0.6);
+        }
+        
+        /* Sección de Oferta Especial */
+        .offer-section {
+            background-color: var(--askesis-gray);
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+        .offer-card {
+            background-color: #121212;
+            border: 2px solid var(--askesis-orange);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .offer-card h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--askesis-orange);
+            margin-bottom: 1rem;
+        }
+        .offer-card p {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .offer-card .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--askesis-text-white);
+            margin-bottom: 0.5rem;
+        }
+        .original-price {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--askesis-green);
+            color: var(--askesis-text-white);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 128, 55, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 1.5rem;
+        }
+        .whatsapp-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 128, 55, 0.6);
+        }
+
+        /* Sección de Propuesta de Valor */
+        .value-prop-section {
+            background-color: var(--askesis-dark);
+            text-align: center;
+        }
+        .value-prop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .value-prop-card {
+            background-color: var(--askesis-gray);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--askesis-border);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+        .value-prop-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Estilos de color para cada valor */
+        .value-prop-card.progressive .icon,
+        .value-prop-card.progressive h3 {
+            color: var(--askesis-green);
+        }
+        .value-prop-card.complete-guide .icon,
+        .value-prop-card.complete-guide h3 {
+            color: var(--askesis-blue);
+        }
+        .value-prop-card.constant-support .icon,
+        .value-prop-card.constant-support h3 {
+            color: var(--askesis-orange);
+        }
+        
+        .value-prop-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .value-prop-card h3 {
+            color: var(--askesis-text-white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .value-prop-card p {
+            font-size: 1rem;
+            color: var(--askesis-light-gray);
+        }
+        
+        /* Contenido del Programa (del resumen anterior) */
+        .content-section {
+            background-color: var(--askesis-gray);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            border: 1px solid var(--askesis-border);
+        }
+        .main-title {
+            color: var(--askesis-text-white);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .tabs-container {
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+        .tab-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-bottom: 2px solid var(--askesis-border);
+            margin-bottom: 2rem;
+        }
+        .tab-button {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            border-bottom: 4px solid transparent;
+            color: var(--askesis-light-gray);
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: 'Roboto', sans-serif;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .tab-button:hover {
+            color: var(--askesis-orange);
+        }
+        .tab-button.active {
+            color: var(--askesis-text-white);
+            border-bottom-color: var(--askesis-orange);
+        }
+        .tab-pane {
+            display: none;
+            padding: 1rem;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .tab-title {
+            color: var(--askesis-orange);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .content-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .content-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        .content-list li::before {
+            content: '\f058'; /* Icono de check (Font Awesome) */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .highlighted-text {
+            color: var(--askesis-orange);
+            font-weight: bold;
+            font-style: italic;
+        }
+        
+        /* Footer Simple */
+        .simple-footer {
+            background-color: var(--askesis-dark);
+            text-align: center;
+            padding: 2rem 1rem;
+            border-top: 1px solid var(--askesis-border);
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .main-header .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .main-nav {
+                margin-top: 1rem;
+            }
+            .main-nav ul {
+                justify-content: center;
+                gap: 1rem;
+            }
+            #hero-gap h1 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .content-section {
+                padding: 1rem;
+            }
+            .tab-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .tab-button {
+                border-bottom: none;
+                text-align: center;
+            }
+            .tab-button.active {
+                border-bottom-color: transparent;
+                border-left: 4px solid var(--askesis-orange);
+            }
+            .offer-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo-container">
+                <img src="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" alt="Logo Askesis" class="logo-img">
+                <span class="logo-text">Askesis</span>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#programa">Programa</a></li>
+                    <li><a href="#oferta">Oferta</a></li>
+                    <li><a href="#valor">Valor</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero-gap" style="background-image: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.85)), url('https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/portada%20askesis.jpeg');">
+            <div class="container">
+                <span class="hero-tag">¡Paga 2, Llévate 3!</span>
+                <h1>Programa GAP Femenino de Askesis</h1>
+                <p>Un plan de entrenamiento especializado y diseñado para fortalecer, tonificar y definir Glúteos, Abdomen y Piernas en solo 3 meses. Nuestro programa te guiará en cada paso para que logres resultados reales y duraderos.</p>
+                <a href="#oferta" class="cta-button">¡Aprovecha la Oferta Especial!</a>
+            </div>
+        </section>
+
+        <section id="oferta" class="offer-section">
+            <div class="container">
+                <div class="offer-card">
+                    <h3>¡Oferta Especial por Tiempo Limitado!</h3>
+                    <p>Plan Mensual: <span class="price">CLP $40.000</span></p>
+                    <p>Programa Completo (3 meses): <span class="price">CLP $80.000</span></p>
+                    <span class="original-price">En lugar de CLP $120.000</span>
+                    <p>¡Paga solo 2 meses y te regalamos el tercero!</p>
+                    <!-- WhatsApp Button -->
+                    <a href="https://api.whatsapp.com/send?phone=56975401150&text=Hola%2C%20estoy%20interesado%28a%29%20en%20el%20Programa%20GAP%20Femenino.%20Me%20gustaría%20aprovechar%20la%20oferta%20de%203%20meses%20por%20%2480.000." target="_blank" class="whatsapp-button">
+                        <i class="fab fa-whatsapp"></i> Adquirir Oferta
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="valor" class="page-section value-prop-section">
+            <div class="container">
+                <h2 class="section-title">El Programa está Pensado Para Ti</h2>
+                <div class="value-prop-grid">
+                    <div class="value-prop-card progressive">
+                        <div class="icon"><i class="fas fa-arrow-right-long"></i></div>
+                        <h3>Estructura Progresiva</h3>
+                        <p>El plan se adapta a tu evolución, asegurando que siempre estés progresando y evitando estancamientos.</p>
+                    </div>
+                    <div class="value-prop-card complete-guide">
+                        <div class="icon"><i class="fas fa-book"></i></div>
+                        <h3>Guía Completa</h3>
+                        <p>Te entregamos toda la información necesaria para que sepas exactamente qué hacer en cada sesión.</p>
+                    </div>
+                    <div class="value-prop-card constant-support">
+                        <div class="icon"><i class="fas fa-headset"></i></div>
+                        <h3>Soporte Constante</h3>
+                        <p>Tendrás acceso directo a mí para resolver dudas y recibir apoyo durante todo tu proceso.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="programa" class="page-section" style="background-color: #0A0A0A;">
+            <div class="container">
+                <h2 class="section-title">Detalles Clave del Programa</h2>
+                <div class="tabs-container">
+                    <div class="tab-buttons">
+                        <button class="tab-button active" data-target="estructura">Estructura y Progresión</button>
+                        <button class="tab-button" data-target="implementacion">Implementación</button>
+                        <button class="tab-button" data-target="consideraciones">Consideraciones Adicionales</button>
+                    </div>
+
+                    <div class="tab-content">
+                        <!-- Pestaña 1: Estructura y Progresión -->
+                        <div id="estructura" class="tab-pane active">
+                            <h2 class="tab-title">Estructura y Progresión del Programa</h2>
+                            <p>El programa está diseñado como una progresión gradual, con cada mes construyendo sobre el anterior para lograr resultados óptimos.</p>
+                            
+                            <h3>Mes 1: Adaptación y Creación de Bases</h3>
+                            <ul class="content-list">
+                                <li><i class="fas fa-check-circle"></i> <span class="highlighted-text">Enfoque:</span> Se centra en la adaptación muscular, el desarrollo de la técnica correcta y la conexión mente-músculo.</li>
+                                <li><i class="fas fa-check-circle"></i> <span class="highlighted-text">Ideal para:</span> Principiantes o personas que regresan a la actividad física.</li>
+                                <li><i class="fas fa-check-circle"></i> <span class="highlighted-text">Resultados esperados:</span> Mejora de la forma, mayor conciencia corporal y preparación para cargas más pesadas.</li>
+                            </ul>
+                            
+                            <h3>Mes 2: Intensificación y Fuerza</h3>
+                            <ul class="content-list">
+                                <li><i class="fas fa-check-circle"></i> <span class="highlighted-text">Enfoque:</span> Se incrementa la intensidad para construir fuerza. Se aumenta la carga progresivamente y se introducen ejercicios más exigentes.</li>
+                                <li><i class="fas fa-check-circle"></i> <span class="highlighted-text">Ideal para:</span> Personas con una base sólida que buscan aumentar su fuerza.</li>
+                                <li><i class="fas fa-check-circle"></i> <span class="highlighted-text">Resultados esperados:</span> Aumento de la fuerza en glúteos, abdomen y piernas.</li>
+                            </ul>
+                            
+                            <h3>Mes 3: Definición y Estrés Metabólico</h3>
+                            <ul class="content-list">
+                                <li><i class="fas fa-check-circle"></i> <span class="highlighted-text">Enfoque:</span> El objetivo es maximizar la hipertrofia muscular y la definición. Se utilizan técnicas de entrenamiento de alta intensidad.</li>
+                                <li><i class="fas fa-check-circle"></i> <span class="highlighted-text">Ideal para:</span> Quienes buscan refinar su figura y llevar su físico al siguiente nivel.</li>
+                                <li><i class="fas fa-check-circle"></i> <span class="highlighted-text">Resultados esperados:</span> Mayor definición muscular y una silueta más tonificada.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Pestaña 2: Implementación del Programa -->
+                        <div id="implementacion" class="tab-pane">
+                            <h2 class="tab-title">Implementación del Programa</h2>
+                            <ul class="content-list">
+                                <li><i class="fas fa-check-circle"></i> <span class="highlighted-text">Adaptabilidad:</span> El programa se puede realizar tanto en casa como en el gimnasio.</li>
+                                <li><i class="fas fa-check-circle"></i> <span class="highlighted-text">Equipamiento:</span> Se adapta a diferentes equipos como mancuernas, bandas de resistencia, peso corporal y máquinas de gimnasio.</li>
+                                <li><i class="fas fa-check-circle"></i> <span class="highlighted-text">Frecuencia:</span> Se sugieren 3 entrenamientos semanales, con la recomendación de dejar un día de descanso entre cada sesión.</li>
+                                <li><i class="fas fa-check-circle"></i> <span class="highlighted-text">Preparación:</span> Es crucial calentar antes de cada sesión y estirar al finalizar para prevenir lesiones.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Pestaña 3: Consideraciones Adicionales -->
+                        <div id="consideraciones" class="tab-pane">
+                            <h2 class="tab-title">Consideraciones Adicionales</h2>
+                            <ul class="content-list">
+                                <li><i class="fas fa-check-circle"></i> <span class="highlighted-text">Resultados:</span> La clave del éxito es la consistencia en el entrenamiento, una técnica correcta y una nutrición adecuada.</li>
+                                <li><i class="fas fa-check-circle"></i> <span class="highlighted-text">Salud y Bienestar:</span> Es fundamental escuchar a tu cuerpo. Si sientes dolor, se debe reducir la intensidad o adaptar el ejercicio. Si existen lesiones previas, es recomendable consultar a un profesional antes de empezar.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="simple-footer">
+        <p>© <span id="currentYear"></span> Askesis. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Update the footer year
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // Tabs logic
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-target');
+                    
+                    // Update buttons
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    // Update panels
+                    tabPanes.forEach(pane => {
+                        if (pane.id === targetId) {
+                            pane.classList.add('active');
+                        } else {
+                            pane.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
