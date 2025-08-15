@@ -195,10 +195,10 @@
             max-width: 1000px; /* Limits the max width of the grid container */
         }
 
-        /* New media query for larger screens to ensure 5 items per row and even distribution */
+        /* New media query for larger screens to ensure 4 items per row and even distribution */
         @media (min-width: 1024px) { /* Tailwind's 'lg' breakpoint */
             .hero-plans-container-kow {
-                grid-template-columns: repeat(5, 1fr); /* Forces 5 equal columns */
+                grid-template-columns: repeat(4, 1fr); /* Forces 4 equal columns */
                 max-width: 1200px; /* Allow it to expand more on large screens */
             }
         }
@@ -276,134 +276,6 @@
             background-color: #00662c;
         }
 
-        /* Base style for circular cards in Hero section */
-        .hero-circle-card {
-            background-color: var(--askesis-gray);
-            border: 1px solid var(--askesis-border);
-            border-radius: 50%; /* Make it circular */
-            width: 150px; /* Fixed size for circles */
-            height: 150px; /* Fixed size for circles */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            text-decoration: none; /* Remove underline for the link */
-            justify-self: center; /* Center horizontally in grid cell */
-            align-self: center; /* Center vertically in grid cell */
-            flex-shrink: 0; /* Prevent shrinking on smaller screens */
-        }
-        .hero-circle-card:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-        }
-        .hero-circle-card .circle-label {
-            font-size: 0.9em; 
-            color: var(--askesis-text-white);
-            font-weight: 600;
-            margin-top: 0.5rem;
-            line-height: 1.2;
-        }
-
-        /* Specific styles for Instagram circle */
-        .hero-instagram-circle img {
-            width: 70px; /* Size of the image inside the circle */
-            height: 70px;
-            object-fit: contain; 
-            border-radius: 50%; /* Keep image circular */
-        }
-        .hero-instagram-circle:hover {
-            border-color: var(--askesis-orange); /* Orange border on hover */
-        }
-
-        /* Specific styles for Tools circle */
-        .hero-tools-circle i {
-            font-size: 3rem; /* Size of the icon inside the circle */
-            color: var(--askesis-green); /* Green icon color */
-        }
-        .hero-tools-circle:hover {
-            border-color: var(--askesis-blue); /* Blue border on hover */
-        }
-        
-        .programs-grid-kow { 
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 1.5rem; 
-        }
-        .program-card-kow { 
-            background-color: var(--askesis-gray);
-            border-radius: 0.5rem; 
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid var(--askesis-border);
-            position: relative; 
-        }
-        .program-card-kow:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .program-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: var(--askesis-orange);
-            color: var(--askesis-dark);
-            padding: 0.25rem 0.6rem;
-            border-radius: 0.25rem;
-            font-size: 0.7rem;
-            font-weight: bold;
-            z-index: 1;
-        }
-        .program-card-kow img {
-            width: 100%;
-            height: 200px; 
-            object-fit: cover; 
-            background-color: #2a2a2a; 
-        }
-        .program-card-kow .program-content-kow {
-            padding: 1.25rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .program-card-kow .program-title-kow {
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.25em;
-            font-weight: 700;
-            color: var(--askesis-text-white);
-            margin-bottom: 0.5rem;
-        }
-        .program-card-kow .program-description-kow {
-            font-size: 0.85rem;
-            color: var(--askesis-light-gray);
-            margin-bottom: 1rem;
-            line-height: 1.5;
-            flex-grow: 1;
-        }
-        .program-card-kow .program-cta-kow {
-            display: block;
-            background-color: var(--askesis-orange);
-            color: var(--askesis-dark) !important;
-            padding: 0.6rem 1rem;
-            border-radius: 0.375rem;
-            text-align: center;
-            text-decoration: none;
-            font-weight: 700; 
-            font-size: 0.85em;
-            text-transform: uppercase;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            margin-top: 1rem;
-        }
-        .program-card-kow .program-cta-kow:hover {
-            background-color: #d97019;
-        }
-        
         .collapsible-section-dark details {
             border-radius: 8px;
             border: 1px solid var(--askesis-border); 
@@ -722,7 +594,6 @@
 
             .main-header .container { padding-left: 1rem; padding-right: 1rem; }
             .main-header nav.hidden.md\:flex { display: none !important; }
-            .programs-grid-kow { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); } 
 
             .impact-stats .stat-item {
                 width: 140px; /* Adjust size for mobile */
@@ -743,7 +614,6 @@
              .floating-btn .btn-text {
                  font-size: 0.8rem;
              }
-             .programs-grid-kow { grid-template-columns: 1fr; } 
              .hero-plans-container-kow {
                 max-width: 100%;
              }
@@ -1065,7 +935,6 @@
     <header class="main-header" id="main-header">
         <div class="container mx-auto flex items-center justify-between p-4">
             <div class="flex items-center gap-4">
-                <!-- Removed tools-nav-link from here -->
                 <a href="#hero" class="flex items-center gap-2 group"> 
                     <div class="rounded-full overflow-hidden h-10 w-10 bg-askesis-dark flex items-center justify-center border border-askesis-orange group-hover:border-askesis-green transition-colors duration-300">
                         <img src="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" alt="Logo Askesis" class="w-full h-full object-cover">
@@ -1078,7 +947,6 @@
             <nav class="hidden md:flex items-center">
                 <a href="#hero" class="nav-link active">Inicio</a>
                 <a href="#contacto" class="nav-link">Contacto</a>
-                <a href="#programas-especificos" class="nav-link">Programas</a>
                 <a href="#" id="open-profile-modal-desktop" class="nav-link">Quién Soy</a>
                 <a href="#impacto" class="nav-link">Impacto</a>
                 <a href="#guias" class="nav-link">Guías Gratis</a>
@@ -1092,10 +960,8 @@
 
         <!-- Menú de navegación para móviles -->
         <div id="mobile-menu" class="hidden md:hidden bg-askesis-dark border-t border-askesis-border">
-            <!-- Removed mobile-menu-link-wrapper as tools link is now in hero section -->
             <a href="#hero" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Inicio</a>
             <a href="#contacto" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Contacto</a>
-            <a href="#programas-especificos" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Programas</a>
             <a href="#" id="open-profile-modal-mobile" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Quién Soy</a>
             <a href="#impacto" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Impacto</a>
             <a href="#guias" class="block text-askesis-text-white text-center py-3 hover:bg-askesis-gray nav-link-mobile">Guías Gratis</a>
@@ -1142,16 +1008,13 @@
                              <div class="hero-plan-action-button-kow mt-auto"><i class="fab fa-whatsapp mr-2"></i>Consultar</div>
                         </a>
                         
-                        <!-- Círculo para Instagram -->
-                        <a href="https://www.instagram.com/askesis111" target="_blank" class="hero-circle-card hero-instagram-circle" title="Visita nuestro Instagram">
-                            <img src="https://raw.githubusercontent.com/OmniaInBonum/web-test/main/Logo%20Askesis.jpg" alt="Logo Askesis">
-                            <span class="circle-label">Instagram</span>
-                        </a>
-
-                        <!-- Círculo para Herramientas Útiles -->
-                        <a href="https://OmniaInBonum.github.io/askesis-links/Herramientas%20Utiles.html" target="_blank" class="hero-circle-card hero-tools-circle" title="Herramientas Útiles">
-                            <i class="fas fa-tools"></i>
-                            <span class="circle-label">Herramientas</span>
+                        <!-- Tarjeta rectangular para Instagram -->
+                        <a href="https://www.instagram.com/askesis111" target="_blank" class="hero-plan-card-kow">
+                            <div>
+                                <i class="fab fa-instagram" style="font-size: 2.5rem; color: var(--askesis-orange); margin-bottom: 0.75rem;"></i>
+                                <h3 class="hero-plan-title-kow">Nuestro Instagram</h3>
+                                <p class="hero-plan-note-kow text-xs min-h-[4.5em] flex items-center justify-center">Sigue nuestro contenido, tips y rutinas diarias. ¡Únete a la comunidad!</p>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -1249,53 +1112,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Programas Específicos Destacados (Moved after Contact) -->
-        <section id="programas-especificos" class="page-section scroll-mt-header">
-            <div class="content-wrapper">
-                <h2 class="section-title"><i class="fas fa-star mr-3"></i>Programas Específicos Destacados</h2>
-                <p class="text-center text-lg mb-10 max-w-3xl mx-auto text-askesis-light-gray">Explora nuestros programas especializados, diseñados para objetivos concretos y transformaciones profundas.</p>
-                <div class="programs-grid-kow"> 
-                    <div class="program-card-kow">
-                        <span class="program-badge" style="background-color: var(--askesis-green); color: var(--askesis-text-white);">¡Nuevo!</span>
-                        <img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/dominadas.jpeg" alt="Persona realizando dominadas para programa de iniciación a calistenia">
-                        <div class="program-content-kow">
-                            <div>
-                                <h3 class="program-title-kow">Programa Iniciación Calistenia</h3>
-                                <p class="program-description-kow">Principiantes (hombres/mujeres) queriendo dominar su peso corporal (3 Meses). Logra tus primeras dominadas, 20 flexiones y un L-Sit sólido.</p>
-                            </div>
-                            <a href="https://OmniaInBonum.github.io/WEB-Akesis/WEB%20Calistenia%203%20meses%20iniciante.html" target="_blank" class="program-cta-kow">
-                                Más Info <i class="fas fa-arrow-right ml-2"></i>
-                            </a>
-                        </div>
-                    </div>
-                     <div class="program-card-kow">
-                        <img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/Sentadilla%20Casa.jpg" alt="Hombre realizando sentadilla con barra para programa de fitness general">
-                        <div class="program-content-kow">
-                            <div>
-                                <h3 class="program-title-kow">Programa Fitness General</h3>
-                                <p class="program-description-kow">Mejora tu acondicionamiento físico general. Un enfoque balanceado para ganar fuerza, resistencia y mejorar tu composición corporal.</p>
-                            </div>
-                            <a href="https://omniainbonum.github.io/WEB-Akesis/Web%203%20bloques.html" target="_blank" class="program-cta-kow" style="background-color: var(--askesis-green); color:var(--askesis-text-white) !important;">
-                                Más Info <i class="fas fa-arrow-right ml-2"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="program-card-kow">
-                         <img src="https://raw.githubusercontent.com/OmniaInBonum/WEB-Akesis/main/portada%20askesis.jpeg" alt="Mujer entrenando glúteos para programa GAP femenino">
-                        <div class="program-content-kow">
-                           <div>
-                                <h3 class="program-title-kow">Programa GAP Femenino</h3>
-                                <p class="program-description-kow">Ideal para mujeres buscando fortalecer y definir Glúteos, Abdomen y Piernas. Énfasis en técnica y tonificación.</p>
-                           </div>
-                            <a href="https://omniainbonum.github.io/WEB-Akesis/GAP%20WEB.html" target="_blank" class="program-cta-kow" style="background-color: var(--askesis-blue); color:var(--askesis-text-white) !important;">
-                                Más Info <i class="fas fa-arrow-right ml-2"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         
         <!-- Impact Section (Remains in its place) -->
         <section id="impacto" class="impact page-section scroll-mt-header">
@@ -1374,7 +1190,6 @@
             <div class="mb-8 footer-links">
                 <a href="#hero">Inicio</a> |
                 <a href="#contacto">Contacto</a> |
-                <a href="#programas-especificos">Programas</a> |
                 <a href="#guias">Guías</a>
             </div>
             <div class="coach-info-footer mb-6">
@@ -1459,8 +1274,6 @@
                     if (link.id === 'open-profile-modal-desktop' || link.id === 'open-profile-modal-mobile') {
                         return; // The modal script will handle this
                     }
-
-                    // No need for 'actualLinkElement' logic as tools-nav-link is no longer in header/mobile menu
                     
                     const targetId = link.getAttribute('href');
                     
@@ -1774,4 +1587,3 @@
     </script>
 </body>
 </html>
-
